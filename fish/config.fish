@@ -11,7 +11,7 @@ export EDITOR="nvim"
 export MANPAGER="batman"
 
 # Set starship prompt config location to folder instead of in .config
-export STARSHIP_CONFIG=~/.config/starship/starship.toml
+export STARSHIP_CONFIG="~/.config/starship/starship.toml"
 
 # brew setup
 eval "$(/opt/homebrew/bin/brew shellenv)"
