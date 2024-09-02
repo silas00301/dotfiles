@@ -22,6 +22,7 @@
     dogdns
     glow
     obsidian
+    spotify
   ];
 
   imports = [

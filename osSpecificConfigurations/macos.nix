@@ -3,6 +3,8 @@
 
   homebrew.casks = [
     "logi-options+"
+    "raycast"
+    "arc"
   ];
 
   system.defaults = {

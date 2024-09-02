@@ -1,12 +1,7 @@
-{ lib, config, pkgs, ... }:
+{ lib, config, ... }:
 
 {
   home.homeDirectory = lib.mkForce "/Users/SILHAEU";
-
-  home.packages = with pkgs; [
-    raycast
-    arc-browser
-  ];
 
   programs.fish = {
     shellInit = ''
