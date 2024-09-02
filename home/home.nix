@@ -37,13 +37,15 @@
     ./config/programs/fd.nix
     ./config/programs/fish.nix
     ./config/programs/fzf.nix
+    ./config/programs/git
     ./config/programs/github-cli.nix
     ./config/programs/jq.nix
     ./config/programs/kitty.nix
     ./config/programs/lazygit.nix
-    ./config/programs/neovim/neovim.nix
+    ./config/programs/neovim
     ./config/programs/ripgrep.nix
     ./config/programs/starship.nix
+    ./config/programs/thefuck.nix
     ./config/programs/tmux.nix
     ./config/programs/vscode.nix
     ./config/programs/zoxide.nix
