@@ -2,7 +2,8 @@
   homebrew.enable = true;
 
   homebrew.casks = [
-    "logi-options+"
+    # currently needs manual install because of some bug
+    #"logi-options+"
     "raycast"
     "arc"
   ];
