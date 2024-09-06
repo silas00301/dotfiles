@@ -4,7 +4,6 @@
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
     nixpkgs-stable.url = "github:NixOS/nixpkgs/nixpkgs-24.05-darwin";
-    nixpkgs-kitty-fix.url = "github:NixOS/nixpkgs/0c3d12a3e5d4077cf7fee84fcb177237ee8daddf";
 
     catppuccin.url = "github:catppuccin/nix";
 
@@ -15,15 +14,17 @@
     nix-darwin.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = { self, nix-darwin, home-manager, catppuccin, nixpkgs-stable, nixpkgs-kitty-fix, ... }:
+  outputs = { self, nix-darwin, home-manager, catppuccin, nixpkgs-stable, ... }:
     let
+      username = "SILHAEU";
+
       darwinConfiguration = {
         imports = [
           ./baseConfiguration.nix
           ./osSpecificConfigurations/macos.nix
         ];
 
-        username = "SILHAEU";
+        inherit username;
 
         nixpkgs.hostPlatform = "aarch64-darwin";
 
@@ -54,7 +55,7 @@
             {
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
-              home-manager.users.SILHAEU = {
+              home-manager.users.${username} = {
                 imports = [
                   ./home/home.nix
                   ./home/homeMac.nix
@@ -62,12 +63,8 @@
                 ];
               };
               home-manager.extraSpecialArgs = {
+                inherit username;
                 pkgs-stable = import nixpkgs-stable {
-                  system = "aarch64-darwin";
-                  config.allowUnfree = true;
-                };
-
-                pkgs-kitty-fix = import nixpkgs-kitty-fix {
                   system = "aarch64-darwin";
                   config.allowUnfree = true;
                 };

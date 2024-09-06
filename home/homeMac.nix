@@ -1,7 +1,7 @@
-{ lib, config, ... }:
+{ lib, config, ... }@inputs:
 
 {
-  home.homeDirectory = lib.mkForce "/Users/SILHAEU";
+  home.homeDirectory = lib.mkForce "/Users/${inputs.username}";
 
   programs.fish = {
     shellInit = ''

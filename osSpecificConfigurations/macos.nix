@@ -4,6 +4,7 @@
   homebrew.casks = [
     # currently needs manual install because of some bug
     #"logi-options+"
+    "amethyst"
     "raycast"
     "arc"
   ];

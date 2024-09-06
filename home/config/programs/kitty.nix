@@ -1,9 +1,8 @@
-{ pkgs, pkgs-kitty-fix, ... }:
+{ pkgs, ... }:
 
 {
   programs.kitty = {
     enable = true;
-    package = pkgs-kitty-fix.kitty;
     font = {
       name = "Geist Nerd Font Mono";
       size = 12;
