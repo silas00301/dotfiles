@@ -12,9 +12,12 @@
 
     nix-darwin.url = "github:LnL7/nix-darwin";
     nix-darwin.inputs.nixpkgs.follows = "nixpkgs";
+
+    nixvim.url = "github:nix-community/nixvim";
+    nixvim.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = { self, nix-darwin, home-manager, catppuccin, nixpkgs-stable, ... }:
+  outputs = { self, nix-darwin, home-manager, catppuccin, nixpkgs-stable, nixvim, ... }:
     let
       username = "SILHAEU";
 
@@ -55,11 +58,13 @@
             {
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
+              home-manager.backupFileExtension = "bak";
               home-manager.users.${username} = {
                 imports = [
                   ./home/home.nix
                   ./home/homeMac.nix
                   catppuccin.homeManagerModules.catppuccin
+                  nixvim.homeManagerModules.nixvim
                 ];
               };
               home-manager.extraSpecialArgs = {

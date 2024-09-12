@@ -11,7 +11,6 @@
     })
     rustup
     bat
-    direnv
     bat-extras.prettybat
     bat-extras.batwatch
     bat-extras.batman
@@ -32,6 +31,7 @@
     ./config/programs/bat.nix
     ./config/programs/bottom.nix
     ./config/programs/bun.nix
+    ./config/programs/direnv.nix
     ./config/programs/eza.nix
     ./config/programs/fastfetch.nix
     ./config/programs/fd.nix
@@ -42,7 +42,8 @@
     ./config/programs/jq.nix
     ./config/programs/kitty.nix
     ./config/programs/lazygit.nix
-    ./config/programs/neovim/neovim.nix
+    # ./config/programs/neovim/neovim.nix
+    ./config/programs/nixvim/nixvim.nix
     ./config/programs/ripgrep.nix
     ./config/programs/starship.nix
     ./config/programs/thefuck.nix
