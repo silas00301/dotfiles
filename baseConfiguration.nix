@@ -1,15 +1,21 @@
-{ pkgs, config, lib, ... }:
+{
+  pkgs,
+  config,
+  lib,
+  ...
+}:
 
 {
   options = {
-    username = lib.mkOption {
-      type = lib.types.str;
-    };
+    username = lib.mkOption { type = lib.types.str; };
   };
 
   config = {
+
     environment.systemPackages = with pkgs; [
       vim
+      fish
+      coreutils
     ];
 
     services.nix-daemon.enable = true;
@@ -21,6 +27,6 @@
       enable = true;
       useBabelfish = true;
     };
-    users.users.${config.username}.shell = pkgs.fish;
+    users.users.${config.username}.shell = pkgs.zsh;
   };
 }

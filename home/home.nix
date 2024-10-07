@@ -4,11 +4,8 @@
   home.stateVersion = "24.05";
 
   home.packages = with pkgs; [
-    (nerdfonts.override {
-      fonts = [
-        "GeistMono"
-      ];
-    })
+    (nerdfonts.override { fonts = [ "GeistMono" ]; })
+    #bitwarden-cli
     rustup
     bat
     bat-extras.prettybat
@@ -20,7 +17,7 @@
     lazydocker
     dogdns
     glow
-    obsidian
+    #obsidian
     spotify
   ];
 
@@ -48,8 +45,9 @@
     ./config/programs/starship.nix
     ./config/programs/thefuck.nix
     ./config/programs/tmux.nix
-    ./config/programs/vscode.nix
+    # ./config/programs/wez-term.nix
     ./config/programs/zoxide.nix
+    # ./config/programs/zellij.nix
   ];
 
   home.sessionVariables = { };

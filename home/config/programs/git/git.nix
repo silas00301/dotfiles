@@ -20,14 +20,15 @@
       "gpg \"ssh\"" = {
         program = "ssh-keygen";
       };
+      init.defaultBranch = "main";
     };
     aliases = {
       co = "checkout";
     };
     includes = [
       {
-        condition = "gitdir:~/code/work/";
-        path = "~/code/work/.gitconfig";
+        condition = "gitdir:~/Developer/work/";
+        path = "~/Developer/work/.gitconfig";
       }
     ];
   };

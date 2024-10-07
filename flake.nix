@@ -17,7 +17,17 @@
     nixvim.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = { self, nix-darwin, home-manager, catppuccin, nixpkgs-stable, nixvim, ... }:
+  outputs =
+    {
+      self,
+      nix-darwin,
+      home-manager,
+      catppuccin,
+      nixpkgs-stable,
+      nixvim,
+      nixpkgs,
+      ...
+    }:
     let
       username = "SILHAEU";
 
@@ -42,7 +52,7 @@
 
         # Used for backwards compatibility, please read the changelog before changing.
         # $ darwin-rebuild changelog
-        system.stateVersion = 4;
+        system.stateVersion = 5;
         # Set Git commit hash for darwin-version.
         system.configurationRevision = self.rev or self.dirtyRev or null;
       };
@@ -80,5 +90,7 @@
       };
       # Expose the package set, including overlays, for convenience.
       darwinPackages = self.darwinConfigurations."MB-GWXX45QJV4".pkgs;
+      formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.nixfmt-rfc-style;
+      formatter.aarch64-darwin = nixpkgs.legacyPackages.aarch64-darwin.nixfmt-rfc-style;
     };
 }

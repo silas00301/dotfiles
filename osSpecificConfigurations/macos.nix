@@ -1,3 +1,5 @@
+{ config, pkgs, ... }:
+
 {
   homebrew.enable = true;
 
@@ -5,9 +7,17 @@
     # currently needs manual install because of some bug
     #"logi-options+"
     "amethyst"
+    #"bitwarden-cli"
+    "obsidian"
     "raycast"
     "arc"
   ];
+
+  environment.interactiveShellInit = ''
+    $PATH=/etc/profiles/per-user/${config.username}/bin:$PATH
+  '';
+
+  users.users.${config.username}.shell = pkgs.fish;
 
   system.defaults = {
     dock = {

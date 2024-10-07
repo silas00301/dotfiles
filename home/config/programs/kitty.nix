@@ -6,9 +6,7 @@
     font = {
       name = "Geist Nerd Font Mono";
       size = 12;
-      package = (pkgs.nerdfonts.override {
-        fonts = [ "GeistMono" ];
-      });
+      package = (pkgs.nerdfonts.override { fonts = [ "GeistMono" ]; });
     };
     shellIntegration.enableFishIntegration = true;
     extraConfig = ''
