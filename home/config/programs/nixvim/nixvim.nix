@@ -1,4 +1,9 @@
-{ config, lib, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 let
   helpers = lib.nixvim;
 in
@@ -48,6 +53,14 @@ in
         action = "<cmd>Oil<CR>";
         key = "<leader>f";
       }
+      {
+        action = "<cmd>LazyGit<CR>";
+        key = "<leader>g";
+      }
+      {
+        action = "<cmd>Noice telescope<CR>";
+        key = "<leader>n";
+      }
     ];
 
     plugins = {
@@ -75,8 +88,8 @@ in
               "filename"
               "branch"
             ];
-            lualine_c = lib.mkForce [
-
+            lualine_c = [
+              "diff"
             ];
             lualine_x = [
               {
@@ -122,7 +135,6 @@ in
       web-devicons.enable = true;
       lspkind = {
         enable = true;
-        mode = "symbol";
       };
       luasnip.enable = true;
       friendly-snippets.enable = true;
@@ -137,7 +149,7 @@ in
         enableTelescope = true;
         keymaps = {
           addFile = "<leader>ha";
-          toggleQuickMenu = "<leader>ht";
+          toggleQuickMenu = "<leader>hl";
           navFile = {
             "1" = "<leader>1";
             "2" = "<leader>2";
@@ -158,9 +170,35 @@ in
           incremental_selection.enable = true;
         };
       };
-      treesitter-context = {
+      treesitter-context.enable = true;
+      treesitter-textobjects = {
         enable = true;
+        lspInterop = {
+          enable = true;
+          border = "rounded";
+        };
+        select = {
+          enable = true;
+          lookahead = true;
+          keymaps = {
+            "if" = "@function.inner";
+            "af" = "@function.outer";
+            "ic" = "@class.inner";
+            "ac" = "@class.outer";
+            "i=" = "@assignment.inner";
+            "a=" = "@assignment.outer";
+            "v=" = "@assignment.rhs";
+            "n=" = "@assignment.lhs";
+            "il" = "@loop.inner";
+            "al" = "@loop.outer";
+            "ii" = "@conditional.inner";
+            "ai" = "@conditional.outer";
+            "i#" = "@comment.inner";
+            "a#" = "@comment.outer";
+          };
+        };
       };
+
       notify.enable = true;
       tmux-navigator.enable = true;
 
@@ -168,11 +206,20 @@ in
         enable = true;
         inlayHints = true;
         servers = {
-          lua-ls = {
+          lua_ls = {
             enable = true;
             settings.telemetry.enable = false;
           };
-          nil-ls.enable = true;
+          nil_ls.enable = true;
+          ts_ls.enable = true;
+          vuels = {
+            enable = true;
+            package = pkgs.vue-language-server;
+          };
+          jsonls.enable = true;
+          gopls.enable = true;
+          yamlls.enable = true;
+          csharp_ls.enable = true;
         };
       };
 
@@ -195,6 +242,7 @@ in
         };
       };
 
+      cmp-git.enable = true;
       cmp = {
         enable = true;
         autoEnableSources = true;
@@ -203,14 +251,98 @@ in
             { name = "nvim_lsp"; }
             { name = "path"; }
             { name = "buffer"; }
+            { name = "calc"; }
+            { name = "conventionalcommits"; }
             { name = "luasnip"; }
           ];
+          view.entries = {
+            name = "custom";
+            selection_order = "top_down";
+          };
+          window = {
+            completion = {
+              scrollbar = false;
+              completeopt = "menu,menuone,preview,noselect";
+              winhighlight = "Normal:Pmenu,FloatBorder:Pmenu,Search:None";
+              col_offset = -3;
+              side_padding = 0;
+              border = "rounded";
+            };
+            documentation = {
+              border = "rounded";
+            };
+          };
+          formatting = {
+            fields = [
+              "kind"
+              "abbr"
+              "menu"
+            ];
+            format = lib.mkForce ''
+              function(entry, vim_item)
+                local kind = require("lspkind").cmp_format({ mode = "symbol_text", maxwidth = 50 })(entry, vim_item)
+                local strings = vim.split(kind.kind, "%s", { trimempty = true })
+                kind.kind = " " .. (strings[1] or "") .. " "
+                kind.menu = "    (" .. (strings[2] or "") .. ")"
+
+                return kind
+              end,
+            '';
+          };
         };
         settings.mapping = {
-          "<CR>" = "cmp.mapping.confirm({ select = true })";
-          "<Tab>" = "   cmp.mapping(\n     function(fallback)\n	if cmp.visible() then\n	 cmp.select_next_item()\n	else\n	 fallback()\n	end\n     end\n   ,\n   { \"i\", \"s\" }\n )\n ";
+          "<CR>" = ''
+            cmp.mapping({
+              i = function(fallback)
+                if cmp.visible() then
+                  if not cmp.get_active_entry() then
+                    cmp.select_next_item({ behavior = cmp.SelectBehavior.Select })
+                  end
+                  cmp.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = false })
+                else
+                  fallback()
+                end
+              end,
+              s = cmp.mapping.confirm({ 
+                select = true 
+              }),
+              c = cmp.mapping.confirm({ 
+                behavior = cmp.ConfirmBehavior.Replace, 
+                select = true 
+              })
+            })
+          '';
+          "<Tab>" = ''
+            cmp.mapping(
+              function(fallback)
+                if cmp.visible() then
+                  cmp.select_next_item({ behavior = cmp.SelectBehavior.Select })
+                else
+                  fallback()
+                end
+              end,
+              { "i", "s", "c" }
+            )
+          '';
+          "<S-Tab>" = ''
+            cmp.mapping(
+              function(fallback)
+                if cmp.visible() then
+                  cmp.select_prev_item({ behavior = cmp.SelectBehavior.Select })
+                else
+                  fallback()
+                end
+              end,
+              { "i", "s", "c" }
+            )
+          '';
         };
       };
+      cmp-cmdline.enable = true;
+      cmp-path.enable = true;
+      cmp-treesitter.enable = true;
+      cmp-calc.enable = true;
+      cmp-conventionalcommits.enable = true;
     };
   };
 }
