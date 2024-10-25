@@ -4,9 +4,6 @@
   pkgs,
   ...
 }:
-let
-  helpers = lib.nixvim;
-in
 {
   programs.nixvim = {
     enable = true;
@@ -210,7 +207,7 @@ in
             enable = true;
             settings.telemetry.enable = false;
           };
-          nil_ls.enable = true;
+          nixd.enable = true;
           ts_ls.enable = true;
           vuels = {
             enable = true;

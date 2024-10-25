@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
 
 {
   homebrew.enable = true;
@@ -17,7 +17,7 @@
     $PATH=/etc/profiles/per-user/${config.username}/bin:$PATH
   '';
 
-  users.users.${config.username}.shell = pkgs.fish;
+  users.users.${config.username}.shell = lib.mkForce pkgs.fish;
 
   system = {
     defaults = {
@@ -26,7 +26,10 @@
         autohide = true;
         mru-spaces = false;
         magnification = true;
-        autohide-time-modifier = 0.5;
+        autohide-time-modifier = 0.2;
+        mineffect = "genie";
+        show-recents = false;
+
         autohide-delay = 0.24;
         persistent-apps = [
           "/Applications/Arc.app/"
