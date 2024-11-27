@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ ... }@inputs:
 {
   programs.fish = {
     enable = true;
@@ -22,7 +22,7 @@
       };
       rebuild = {
         position = "command";
-        expansion = "darwin-rebuild switch --flake ~/dotfiles";
+        expansion = "darwin-rebuild switch --flake ~/dotfiles#${inputs.configName}";
       };
     };
     shellInit = ''

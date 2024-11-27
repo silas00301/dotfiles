@@ -29,7 +29,7 @@
       ...
     }:
     let
-      username = "SILHAEU";
+      username = "silash";
 
       darwinConfiguration = {
         imports = [
@@ -60,7 +60,7 @@
     {
       # outputs
       darwinConfigurations = {
-        "MB-GWXX45QJV4" = nix-darwin.lib.darwinSystem {
+        "wm" = nix-darwin.lib.darwinSystem {
 
           modules = [
             darwinConfiguration
@@ -79,6 +79,7 @@
               };
               home-manager.extraSpecialArgs = {
                 inherit username;
+                configName = "wm";
                 pkgs-stable = import nixpkgs-stable {
                   system = "aarch64-darwin";
                   config.allowUnfree = true;
@@ -89,7 +90,7 @@
         };
       };
       # Expose the package set, including overlays, for convenience.
-      darwinPackages = self.darwinConfigurations."MB-GWXX45QJV4".pkgs;
+      darwinPackages = self.darwinConfigurations."wm".pkgs;
       formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.nixfmt-rfc-style;
       formatter.aarch64-darwin = nixpkgs.legacyPackages.aarch64-darwin.nixfmt-rfc-style;
     };
