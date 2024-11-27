@@ -222,20 +222,22 @@
 
       noice = {
         enable = true;
-        cmdline = {
-          enabled = true;
-          view = "cmdline";
-        };
-        messages.enabled = true;
-        notify.enabled = true;
-        popupmenu = {
-          enabled = true;
-          backend = "cmp";
-        };
-        lsp.override = {
-          "cmp.entry.get_documentation" = true;
-          "vim.lsp.util.convert_input_to_markdown_lines" = true;
-          "vim.lsp.util.stylize_markdown" = true;
+        settings = {
+          cmdline = {
+            enabled = true;
+            view = "cmdline";
+          };
+          messages.enabled = true;
+          notify.enabled = true;
+          popupmenu = {
+            enabled = true;
+            backend = "cmp";
+          };
+          lsp.override = {
+            "cmp.entry.get_documentation" = true;
+            "vim.lsp.util.convert_input_to_markdown_lines" = true;
+            "vim.lsp.util.stylize_markdown" = true;
+          };
         };
       };
 

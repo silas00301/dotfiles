@@ -1,4 +1,9 @@
-{ config, pkgs, lib, ... }:
+{
+  config,
+  pkgs,
+  lib,
+  ...
+}:
 
 {
   homebrew.enable = true;
@@ -8,7 +13,7 @@
     #"logi-options+"
     "amethyst"
     #"bitwarden-cli"
-    "obsidian"
+    #"obsidian"
     "raycast"
     "arc"
   ];
@@ -22,6 +27,15 @@
   system = {
     defaults = {
       WindowManager.EnableStandardClickToShowDesktop = false;
+      controlcenter = {
+        AirDrop = false;
+        BatteryShowPercentage = false;
+        Bluetooth = false;
+        Display = false;
+        FocusModes = false;
+        NowPlaying = false;
+        Sound = false;
+      };
       dock = {
         autohide = true;
         mru-spaces = false;

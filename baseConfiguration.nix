@@ -16,6 +16,7 @@
       vim
       fish
       coreutils
+      httpie
     ];
 
     services.nix-daemon.enable = true;

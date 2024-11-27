@@ -17,7 +17,7 @@
     lazydocker
     dogdns
     glow
-    #obsidian
+    obsidian
     spotify
   ];
 

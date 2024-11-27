@@ -2,7 +2,10 @@
   programs.lazygit = {
     enable = true;
     settings = {
-      paging.useConfig = true;
+      paging = {
+        colorArg = "always";
+        pager = "delta --paging=never";
+      };
       commit.signOff = true;
     };
   };
