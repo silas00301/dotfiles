@@ -4,7 +4,7 @@
   home.stateVersion = "24.05";
 
   home.packages = with pkgs; [
-    (nerdfonts.override { fonts = [ "GeistMono" ]; })
+    nerd-fonts.geist-mono
     #bitwarden-cli
     rustup
     bat
