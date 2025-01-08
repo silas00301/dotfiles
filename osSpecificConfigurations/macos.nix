@@ -10,7 +10,7 @@
 
   homebrew.casks = [
     # currently needs manual install because of some bug
-    #"logi-options+"
+    "logi-options+"
     "amethyst"
     #"bitwarden-cli"
     #"obsidian"

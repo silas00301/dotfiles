@@ -1,28 +1,29 @@
-{ pkgs, ... }:
+{ pkgs, nixvim, ... }:
 
 {
   home.stateVersion = "24.05";
 
-  home.packages = with pkgs; [
-    nerd-fonts.geist-mono
-    #bitwarden-cli
-    rustup
-    bat
-    bat-extras.prettybat
-    bat-extras.batwatch
-    bat-extras.batman
-    bat-extras.batgrep
-    bat-extras.batpipe
-    bat-extras.batdiff
-    lazydocker
-    dogdns
-    glow
-    obsidian
-    spotify
+  home.packages = [
+    pkgs.nerd-fonts.geist-mono
+    pkgs. # bitwarden-cli
+    pkgs.rustup
+    pkgs.bat
+    pkgs.bat-extras.prettybat
+    pkgs.bat-extras.batwatch
+    pkgs.bat-extras.batman
+    pkgs.bat-extras.batgrep
+    pkgs.bat-extras.batpipe
+    pkgs.bat-extras.batdiff
+    pkgs.lazydocker
+    pkgs.dogdns
+    pkgs.glow
+    pkgs.obsidian
+    pkgs.spotify
+    nixvim
   ];
 
   imports = [
-    ./config/themes/catppuccin.nix
+    # ./config/themes/catppuccin.nix
 
     ./config/programs/atuin.nix
     ./config/programs/bat.nix
@@ -34,13 +35,13 @@
     ./config/programs/fd.nix
     ./config/programs/fish.nix
     ./config/programs/fzf.nix
+    # ./config/programs/ghostty.nix
     ./config/programs/git/git.nix
     ./config/programs/github-cli.nix
     ./config/programs/jq.nix
     ./config/programs/kitty.nix
     ./config/programs/lazygit.nix
     # ./config/programs/neovim/neovim.nix
-    ./config/programs/nixvim/nixvim.nix
     ./config/programs/ripgrep.nix
     ./config/programs/starship.nix
     ./config/programs/thefuck.nix

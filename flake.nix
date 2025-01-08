@@ -31,6 +31,12 @@
     let
       username = "silash";
 
+      catppuccinConfig = {
+        enable = true;
+        flavor = "mocha";
+        accent = "lavender";
+      };
+
       darwinConfiguration = {
         imports = [
           ./baseConfiguration.nix
@@ -56,12 +62,21 @@
         # Set Git commit hash for darwin-version.
         system.configurationRevision = self.rev or self.dirtyRev or null;
       };
+
+      nixvimConfiguration = {
+        module = import ./nixvimConfiguration/nixvim.nix;
+        # You can use `extraSpecialArgs` to pass additional arguments to your module files
+        extraSpecialArgs = {
+          catppuccin = catppuccinConfig;
+        };
+      };
+
+      nixvimPackage = (system: nixvim.legacyPackages.${system}.makeNixvimWithModule nixvimConfiguration);
     in
     {
       # outputs
       darwinConfigurations = {
         "wm" = nix-darwin.lib.darwinSystem {
-
           modules = [
             darwinConfiguration
             home-manager.darwinModules.home-manager
@@ -79,6 +94,8 @@
               };
               home-manager.extraSpecialArgs = {
                 inherit username;
+                nixvim = self.packages.aarch64-darwin.nixvim;
+                catppuccin = catppuccinConfig;
                 configName = "wm";
                 pkgs-stable = import nixpkgs-stable {
                   system = "aarch64-darwin";
@@ -91,6 +108,10 @@
       };
       # Expose the package set, including overlays, for convenience.
       darwinPackages = self.darwinConfigurations."wm".pkgs;
+
+      packages.x86_64-linux.nixvim = nixvimPackage "x86_64-linux";
+      packages.aarch64-darwin.nixvim = nixvimPackage "aarch64-darwin";
+
       formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.nixfmt-rfc-style;
       formatter.aarch64-darwin = nixpkgs.legacyPackages.aarch64-darwin.nixfmt-rfc-style;
     };
