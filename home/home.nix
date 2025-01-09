@@ -23,7 +23,7 @@
   ];
 
   imports = [
-    # ./config/themes/catppuccin.nix
+    ./config/themes/catppuccin.nix
 
     ./config/programs/atuin.nix
     ./config/programs/bat.nix

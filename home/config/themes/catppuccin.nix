@@ -1,7 +1,7 @@
-{
+{catppuccin, ...}: {
   catppuccin = {
-    enable = true;
-    flavor = "mocha";
-    accent = "lavender";
+    enable = catppuccin.enable;
+    flavor = catppuccin.flavor;
+    accent = catppuccin.accent;
   };
 }
