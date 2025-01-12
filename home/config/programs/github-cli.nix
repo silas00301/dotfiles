@@ -1,7 +1,7 @@
 {
   programs.gh = {
     enable = true;
-    gitCredentialHelper ={ 
+    gitCredentialHelper = {
       enable = true;
       hosts = [
         "https://github.com"

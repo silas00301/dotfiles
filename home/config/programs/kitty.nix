@@ -1,11 +1,11 @@
-{ pkgs, pkgs-stable, ... }:
+{ pkgs, ... }:
 
 {
   programs.kitty = {
     enable = true;
     font = {
       name = "Geist Nerd Font Mono";
-      size = 12;
+      size = 11;
       package = pkgs.nerd-fonts.geist-mono;
     };
     shellIntegration.enableFishIntegration = true;

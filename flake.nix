@@ -1,9 +1,10 @@
 {
-  description = "My nix-darwin + home-manager flake";
+  description = "My nix + home-manager flake";
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
     nixpkgs-stable.url = "github:NixOS/nixpkgs/nixpkgs-24.11-darwin";
+    nixpkgs-stable-nixos.url = "github:NixOS/nixpkgs/nixos-24.11";
 
     catppuccin.url = "github:catppuccin/nix";
 
@@ -15,6 +16,8 @@
 
     nixvim.url = "github:nix-community/nixvim";
     nixvim.inputs.nixpkgs.follows = "nixpkgs";
+
+    lanzaboote.url = "github:nix-community/lanzaboote/v0.4.1";
   };
 
   outputs =
@@ -24,8 +27,10 @@
       home-manager,
       catppuccin,
       nixpkgs-stable,
+      nixpkgs-stable-nixos,
       nixvim,
       nixpkgs,
+      lanzaboote,
       ...
     }:
     let
@@ -71,6 +76,14 @@
         };
       };
 
+      nixosConfiguration = {
+        imports = [
+          ./baseConfiguration.nix
+          ./osSpecificConfigurations/nixos/nixos.nix
+        ];
+        inherit username;
+      };
+
       nixvimPackage = (system: nixvim.legacyPackages.${system}.makeNixvimWithModule nixvimConfiguration);
     in
     {
@@ -89,7 +102,6 @@
                   ./home/home.nix
                   ./home/homeMac.nix
                   catppuccin.homeManagerModules.catppuccin
-                  nixvim.homeManagerModules.nixvim
                 ];
               };
               home-manager.extraSpecialArgs = {
@@ -99,6 +111,39 @@
                 configName = "wm";
                 pkgs-stable = import nixpkgs-stable {
                   system = "aarch64-darwin";
+                  config.allowUnfree = true;
+                };
+              };
+            }
+          ];
+        };
+      };
+      nixosConfigurations = {
+        "nixos" = nixpkgs.lib.nixosSystem {
+          system = "x86_64-linux";
+          modules = [
+            nixosConfiguration
+            lanzaboote.nixosModules.lanzaboote
+            catppuccin.nixosModules.catppuccin
+            home-manager.nixosModules.home-manager
+            {
+              home-manager.useGlobalPkgs = true;
+              home-manager.useUserPackages = true;
+              home-manager.backupFileExtension = "bak";
+              home-manager.users.${username} = {
+                imports = [
+                  ./home/home.nix
+                  ./home/homeNixOS.nix
+                  catppuccin.homeManagerModules.catppuccin
+                  nixvim.homeManagerModules.nixvim
+                ];
+              };
+              home-manager.extraSpecialArgs = {
+                inherit username;
+                nixvim = self.packages.x86_64-linux.nixvim;
+                catppuccin = catppuccinConfig;
+                pkgs-stable = import nixpkgs-stable-nixos {
+                  system = "x86_64-linux";
                   config.allowUnfree = true;
                 };
               };

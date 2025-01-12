@@ -1,4 +1,3 @@
-{ ... }@inputs:
 {
   programs.fish = {
     enable = true;
@@ -19,10 +18,6 @@
       "!!" = {
         position = "anywhere";
         function = "last_history_item";
-      };
-      rebuild = {
-        position = "command";
-        expansion = "darwin-rebuild switch --flake ~/dotfiles#${inputs.configName}";
       };
     };
     shellInit = ''

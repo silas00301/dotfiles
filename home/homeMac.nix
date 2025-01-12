@@ -8,5 +8,11 @@
       eval "$(/opt/homebrew/bin/brew shellenv)" 
       export PATH="$PATH:${config.home.homeDirectory}/Library/Application Support/JetBrains/Toolbox/scripts"
     '';
+    shellAbbrs = {
+      rebuild = {
+        position = "command";
+        expansion = "darwin-rebuild switch --flake ~/dotfiles";
+      };
+    };
   };
 }
