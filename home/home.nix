@@ -46,7 +46,6 @@
     ./config/programs/starship.nix
     ./config/programs/thefuck.nix
     ./config/programs/tmux.nix
-    # ./config/programs/wez-term.nix
     ./config/programs/zoxide.nix
     # ./config/programs/zellij.nix
     ./config/programs/zsh.nix
