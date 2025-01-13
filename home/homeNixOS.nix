@@ -23,7 +23,7 @@
     shellAbbrs = {
       rebuild = {
         position = "command";
-        expansion = "sudo nixos-rebuild switch --flake ~/dotfiles/";
+        expansion = "sudo nixos-rebuild switch --flake ~/dotfiles#nixos";
       };
     };
   };

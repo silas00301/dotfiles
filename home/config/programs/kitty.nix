@@ -5,7 +5,7 @@
     enable = true;
     font = {
       name = "Geist Nerd Font Mono";
-      size = 11;
+      size = 12;
       package = pkgs.nerd-fonts.geist-mono;
     };
     shellIntegration.enableFishIntegration = true;

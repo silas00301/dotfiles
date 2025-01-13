@@ -11,7 +11,7 @@
     shellAbbrs = {
       rebuild = {
         position = "command";
-        expansion = "darwin-rebuild switch --flake ~/dotfiles";
+        expansion = "darwin-rebuild switch --flake ~/dotfiles#wm";
       };
     };
   };
