@@ -1,4 +1,4 @@
-{ pkgs, nixvim, ... }:
+{ pkgs, ... }:
 
 {
   home.stateVersion = "24.05";
@@ -19,7 +19,6 @@
     pkgs.glow
     pkgs.obsidian
     pkgs.spotify
-    nixvim
   ];
 
   imports = [
@@ -42,6 +41,7 @@
     ./config/programs/jq.nix
     ./config/programs/kitty.nix
     ./config/programs/lazygit.nix
+    ./config/programs/nixvim.nix
     ./config/programs/ripgrep.nix
     ./config/programs/starship.nix
     ./config/programs/thefuck.nix
