@@ -212,6 +212,11 @@
         jsonls.enable = true;
         gopls.enable = true;
         yamlls.enable = true;
+        rust_analyzer = { 
+          enable = true;
+          installRustc = false;
+          installCargo = false;
+        };
       };
     };
 
@@ -237,6 +242,8 @@
     };
 
     cmp-git.enable = true;
+    cmp-clippy.enable = true;
+
     cmp = {
       enable = true;
       autoEnableSources = true;
