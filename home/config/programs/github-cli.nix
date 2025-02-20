@@ -13,6 +13,7 @@
       prompt = "enabled";
       aliases = {
         co = "pr checkout";
+        web = "repo view --web";
       };
     };
   };
