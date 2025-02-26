@@ -26,7 +26,7 @@
     $PATH=/etc/profiles/per-user/${config.username}/bin:$PATH
   '';
 
-  security.pam.enableSudoTouchIdAuth = true;
+  security.pam.services.sudo_local.touchIdAuth = true;
 
   users.users.${config.username}.shell = lib.mkForce pkgs.fish;
   
