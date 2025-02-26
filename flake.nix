@@ -47,33 +47,10 @@
           ./baseConfiguration.nix
           ./osSpecificConfigurations/macos.nix
         ];
-
         inherit username;
 
-        nixpkgs.hostPlatform = "aarch64-darwin";
-
-        security.pam.enableSudoTouchIdAuth = true;
-
-        nixpkgs = {
-          config = {
-            allowUnfree = true;
-            allowUnfreePredicate = (_: true);
-          };
-        };
-
-        # Used for backwards compatibility, please read the changelog before changing.
-        # $ darwin-rebuild changelog
         system.stateVersion = 5;
-        # Set Git commit hash for darwin-version.
         system.configurationRevision = self.rev or self.dirtyRev or null;
-      };
-
-      nixvimConfiguration = {
-        module = import ./nixvimConfiguration/nixvim.nix;
-        # You can use `extraSpecialArgs` to pass additional arguments to your module files
-        extraSpecialArgs = {
-          catppuccin = catppuccinConfig;
-        };
       };
 
       nixosConfiguration = {
@@ -82,6 +59,14 @@
           ./osSpecificConfigurations/nixos/nixos.nix
         ];
         inherit username;
+      };
+
+      nixvimConfiguration = {
+        module = import ./nixvimConfiguration/nixvim.nix;
+        # You can use `extraSpecialArgs` to pass additional arguments to your module files
+        extraSpecialArgs = {
+          catppuccin = catppuccinConfig;
+        };
       };
 
       nixvimPackage = (system: nixvim.legacyPackages.${system}.makeNixvimWithModule nixvimConfiguration);

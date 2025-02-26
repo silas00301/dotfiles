@@ -26,7 +26,17 @@
     $PATH=/etc/profiles/per-user/${config.username}/bin:$PATH
   '';
 
+  security.pam.enableSudoTouchIdAuth = true;
+
   users.users.${config.username}.shell = lib.mkForce pkgs.fish;
+  
+  nixpkgs = {
+    hostPlatform = "aarch64-darwin";
+    config = {
+      allowUnfree = true;
+      allowUnfreePredicate = (_: true);
+   };
+  };
 
   system = {
     defaults = {

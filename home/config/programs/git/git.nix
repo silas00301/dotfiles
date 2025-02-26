@@ -3,7 +3,6 @@
     enable = true;
     userName = "Silas";
     userEmail = "contact@silash.dev";
-    delta.enable = true;
     signing = {
       key = "~/.ssh/id_rsa_private.pub";
       signByDefault = true;
@@ -12,12 +11,39 @@
       gpg = {
         format = "ssh";
       };
-      push = {
-        autoSetupRemote = true;
-      };
       "gpg \"ssh\"" = {
         program = "ssh-keygen";
       };
+      push = {
+        autoSetupRemote = true;
+        followTags = true;
+        default = "simple";
+      };
+      fetch = {
+        prune = true;
+        pruneTags = true;
+        all = true;
+      };
+      diff = {
+        algorithm = "histogram";
+        colorMoved = "plain";
+        renames = true;
+        mnemonicPrefix = true;
+      };
+      rerere = {
+        enabled = true;
+        autoupdate = true;
+      };
+      rebase = {
+        autoSquash = true;
+        autoStash = true;
+        updateRefs = true;
+      };
+      pull.rebase = true;
+      merge.conflictStyle = "zdiff3";
+      branch.sort = "-committerdate";
+      column.ui = "auto";
+      help.autocorrect = "prompt";
       init.defaultBranch = "main";
     };
     aliases = {
