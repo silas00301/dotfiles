@@ -114,6 +114,7 @@
       wl-clipboard
       gparted
       nerd-fonts.geist-mono
+      maple-mono-NF
     ];
   };
 

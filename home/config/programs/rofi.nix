@@ -21,6 +21,6 @@
         "combi"
       ];
     };
-    font = pkgs.nerd-fonts.geist-mono.name;
+    font = pkgs.maple-mono-NF.name;
   };
 }

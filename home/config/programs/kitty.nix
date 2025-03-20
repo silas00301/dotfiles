@@ -1,12 +1,9 @@
-{ pkgs, ... }:
-
 {
   programs.kitty = {
     enable = true;
     font = {
-      name = "Geist Nerd Font Mono";
+      name = "MapleMono NF Regular";
       size = 12;
-      package = pkgs.nerd-fonts.geist-mono;
     };
     shellIntegration.enableFishIntegration = true;
     extraConfig = ''
