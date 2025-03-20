@@ -1,4 +1,5 @@
-{nixvim, ...}: {
+{ nixvim, ... }:
+{
   home.packages = [
     nixvim
   ];

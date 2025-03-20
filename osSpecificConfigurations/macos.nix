@@ -29,13 +29,13 @@
   security.pam.services.sudo_local.touchIdAuth = true;
 
   users.users.${config.username}.shell = lib.mkForce pkgs.fish;
-  
+
   nixpkgs = {
     hostPlatform = "aarch64-darwin";
     config = {
       allowUnfree = true;
       allowUnfreePredicate = (_: true);
-   };
+    };
   };
 
   system = {

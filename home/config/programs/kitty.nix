@@ -1,9 +1,11 @@
+{ pkgs, ... }:
 {
   programs.kitty = {
     enable = true;
     font = {
-      name = "MapleMono NF Regular";
+      name = "Maple Mono NF Regular";
       size = 12;
+      package = pkgs.maple-mono-NF;
     };
     shellIntegration.enableFishIntegration = true;
     extraConfig = ''

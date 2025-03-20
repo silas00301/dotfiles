@@ -212,7 +212,7 @@
         jsonls.enable = true;
         gopls.enable = true;
         yamlls.enable = true;
-        rust_analyzer = { 
+        rust_analyzer = {
           enable = true;
           installRustc = false;
           installCargo = false;
