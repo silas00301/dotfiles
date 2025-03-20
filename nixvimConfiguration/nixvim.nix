@@ -14,6 +14,8 @@
         harpoon = true;
         noice = true;
         notify = true;
+        rainbow_delimiters = true;
+        mini.enabled = true;
       };
     };
   };
@@ -121,11 +123,94 @@
       };
     };
 
+    rainbow-delimiters.enable = true;
     telescope.enable = true;
     which-key.enable = true;
     oil.enable = true;
     dressing.enable = true;
     web-devicons.enable = true;
+    lsp-format = {
+      enable = true;
+      autoLoad = true;
+    };
+    mini = {
+      enable = true;
+      modules = {
+        ai = {
+          n_lines = 50;
+          search_method = "cover_or_next";
+        };
+        comment = {
+          mappings = {
+            comment = "<leader>/";
+            comment_line = "<leader>/";
+            comment_visual = "<leader>/";
+            textobject = "<leader>/";
+          };
+        };
+        diff = {
+          view = {
+            style = "sign";
+          };
+        };
+        starter = {
+          content_hooks = {
+            "__unkeyed-1.adding_bullet" = {
+              __raw = "require('mini.starter').gen_hook.adding_bullet()";
+            };
+            "__unkeyed-2.indexing" = {
+              __raw = "require('mini.starter').gen_hook.indexing('all', { 'Builtin actions' })";
+            };
+            "__unkeyed-3.padding" = {
+              __raw = "require('mini.starter').gen_hook.aligning('center', 'center')";
+            };
+          };
+          evaluate_single = true;
+          header = ''
+            ███╗   ██╗██╗██╗  ██╗██╗   ██╗██╗███╗   ███╗
+            ████╗  ██║██║╚██╗██╔╝██║   ██║██║████╗ ████║
+            ██╔██╗ ██║██║ ╚███╔╝ ██║   ██║██║██╔████╔██║
+            ██║╚██╗██║██║ ██╔██╗ ╚██╗ ██╔╝██║██║╚██╔╝██║
+            ██║ ╚████║██║██╔╝ ██╗ ╚████╔╝ ██║██║ ╚═╝ ██║
+          '';
+          items = {
+            "__unkeyed-1.buildtin_actions" = {
+              __raw = "require('mini.starter').sections.builtin_actions()";
+            };
+            "__unkeyed-2.recent_files_current_directory" = {
+              __raw = "require('mini.starter').sections.recent_files(10, false)";
+            };
+            "__unkeyed-3.recent_files" = {
+              __raw = "require('mini.starter').sections.recent_files(10, true)";
+            };
+            "__unkeyed-4.sessions" = {
+              __raw = "require('mini.starter').sections.sessions(5, true)";
+            };
+          };
+        };
+        surround = {
+          mappings = {
+            add = "gsa";
+            delete = "gsd";
+            find = "gsf";
+            find_left = "gsF";
+            highlight = "gsh";
+            replace = "gsr";
+            update_n_lines = "gsn";
+          };
+        };
+      };
+    };
+    lsp-lines = {
+      enable = true;
+    };
+    lsp-signature = {
+      enable = true;
+      settings = {
+        handler_opts.border = "rounded";
+        hint_inline = "inline";
+      };
+    };
     lspkind = {
       enable = true;
     };
@@ -223,10 +308,7 @@
     noice = {
       enable = true;
       settings = {
-        cmdline = {
-          enabled = true;
-          view = "cmdline";
-        };
+        cmdline.enabled = true;
         messages.enabled = true;
         notify.enabled = true;
         popupmenu = {
@@ -241,9 +323,6 @@
       };
     };
 
-    cmp-git.enable = true;
-    cmp-clippy.enable = true;
-
     cmp = {
       enable = true;
       autoEnableSources = true;
@@ -254,6 +333,7 @@
           { name = "buffer"; }
           { name = "calc"; }
           { name = "conventionalcommits"; }
+          { name = "cmdline"; }
           { name = "luasnip"; }
         ];
         view.entries = {
@@ -339,10 +419,12 @@
         '';
       };
     };
-    cmp-cmdline.enable = true;
     cmp-path.enable = true;
     cmp-treesitter.enable = true;
     cmp-calc.enable = true;
     cmp-conventionalcommits.enable = true;
+    cmp-git.enable = true;
+    cmp-clippy.enable = true;
+    cmp-cmdline.enable = true;
   };
 }
