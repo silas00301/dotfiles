@@ -21,6 +21,6 @@
         "combi"
       ];
     };
-    font = pkgs.maple-mono-NF.name;
+    font = pkgs.maple-mono.NF.name;
   };
 }

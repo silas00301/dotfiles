@@ -5,7 +5,7 @@
 
   home.packages = [
     pkgs.nerd-fonts.geist-mono
-    pkgs.maple-mono-NF
+    pkgs.maple-mono.NF
     # pkgs.bitwarden-cli
     pkgs.rustup
     pkgs.bat

@@ -6,7 +6,7 @@
     systemd.target = "hyprland-session.target";
     style = ''
       * {
-        font-family: "${pkgs.maple-mono-NF}";
+        font-family: "${pkgs.maple-mono.NF}";
         font-size: 14px;
         min-height: 0;
       }

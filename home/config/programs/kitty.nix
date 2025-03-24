@@ -5,7 +5,7 @@
     font = {
       name = "Maple Mono NF Regular";
       size = 12;
-      package = pkgs.maple-mono-NF;
+      package = pkgs.maple-mono.NF;
     };
     shellIntegration.enableFishIntegration = true;
     extraConfig = ''
