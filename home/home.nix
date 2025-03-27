@@ -49,7 +49,7 @@
     ./config/programs/thefuck.nix
     ./config/programs/tmux.nix
     ./config/programs/zoxide.nix
-    # ./config/programs/zellij.nix
+    ./config/programs/zellij.nix
     ./config/programs/zsh.nix
   ];
 
