@@ -20,6 +20,7 @@
     pkgs.glow
     pkgs.obsidian
     pkgs.spotify
+    pkgs.jujutsu
   ];
 
   imports = [
