@@ -31,6 +31,14 @@
     autoindent = true;
   };
 
+  autoCmd = [
+    {
+      event = [ "TextYankPost" ];
+      pattern = [ "*" ];
+      command = "silent! lua vim.highlight.on_yank()";
+    }
+  ];
+
   keymaps = [
     {
       action = "<cmd>Telescope live_grep<CR>";
@@ -200,9 +208,6 @@
           };
         };
       };
-    };
-    lsp-lines = {
-      enable = true;
     };
     lsp-signature = {
       enable = true;
