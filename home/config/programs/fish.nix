@@ -13,6 +13,7 @@
       ls = "eza -la --git";
       l1 = "eza -1 --icons=never";
       nix-shell = "nix-shell --run fish";
+      zf = "zellij run -f --";
     };
     shellAbbrs = {
       "!!" = {
