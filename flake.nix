@@ -61,15 +61,17 @@
         inherit username;
       };
 
-      nixvimConfiguration = {
+      nixvimPackage = (system: nixvim.legacyPackages.${system}.makeNixvimWithModule {
         module = import ./nixvimConfiguration/nixvim.nix;
         # You can use `extraSpecialArgs` to pass additional arguments to your module files
         extraSpecialArgs = {
+          pkgs-stable = import nixpkgs-stable {
+            system = system;
+            config.allowUnfree = true;
+          };
           catppuccin = catppuccinConfig;
         };
-      };
-
-      nixvimPackage = (system: nixvim.legacyPackages.${system}.makeNixvimWithModule nixvimConfiguration);
+      });
     in
     {
       # outputs
