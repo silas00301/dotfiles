@@ -88,7 +88,7 @@
                 imports = [
                   ./home/home.nix
                   ./home/homeMac.nix
-                  catppuccin.homeManagerModules.catppuccin
+                  catppuccin.homeModules.catppuccin
                 ];
               };
               home-manager.extraSpecialArgs = {
@@ -121,7 +121,7 @@
                 imports = [
                   ./home/home.nix
                   ./home/homeNixOS.nix
-                  catppuccin.homeManagerModules.catppuccin
+                  catppuccin.homeModules.catppuccin
                   nixvim.homeManagerModules.nixvim
                 ];
               };
