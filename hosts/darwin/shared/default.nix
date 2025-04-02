@@ -2,14 +2,11 @@
   config,
   pkgs,
   lib,
+  self,
   ...
 }:
 
 {
-  imports = [
-    ./nonNixOsConfiguration.nix
-  ];
-
   homebrew.enable = true;
 
   homebrew.casks = [
@@ -39,6 +36,8 @@
   };
 
   system = {
+    stateVersion = 5;
+    system.configurationRevision = self.rev or self.dirtyRev or null;
     defaults = {
       WindowManager.EnableStandardClickToShowDesktop = false;
       controlcenter = {
