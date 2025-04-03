@@ -1,6 +1,10 @@
 {
+{pkgs, ...}: {
   programs.gh = {
     enable = true;
+    extensions = [
+      pkgs.gh-skyline
+    ];
     gitCredentialHelper = {
       enable = true;
       hosts = [
