@@ -57,11 +57,6 @@
     }
     {
       mode = "n";
-      key = "<leader>f";
-      action = "<cmd>Oil<CR>";
-    }
-    {
-      mode = "n";
       key = "<leader>y";
       action = "<cmd>Yazi<CR>";
     }
@@ -129,6 +124,11 @@
       mode = "n";
       key = "<leader>9";
       action.__raw = "function() require'harpoon':list():select(9) end";
+    }
+    {
+      mode = "n";
+      key = "<leader>f";
+      action= "<cmd>lua MiniFiles.open()<CR>";
     }
   ];
 
@@ -200,7 +200,6 @@
     rainbow-delimiters.enable = true;
     telescope.enable = true;
     which-key.enable = true;
-    oil.enable = true;
     dressing.enable = true;
     web-devicons.enable = true;
     yazi.enable = true;
@@ -259,9 +258,6 @@
             "__unkeyed-3.recent_files" = {
               __raw = "require('mini.starter').sections.recent_files(10, true)";
             };
-            "__unkeyed-4.sessions" = {
-              __raw = "require('mini.starter').sections.sessions(5, true)";
-            };
           };
         };
         surround = {
@@ -273,6 +269,30 @@
             highlight = "gsh";
             replace = "gsr";
             update_n_lines = "gsn";
+          };
+        };
+        files = {
+          mappings = {
+            close = "q";
+            go_in = "l";
+            go_in_plus = "L";
+            go_out = "h";
+            go_out_plus = "H";
+            mark_goto = "'";
+            mark_set = "m";
+            reset = "<BS>";
+            reveal_cmd = "@";
+            show_help = "g?";
+            synchronize = "=";
+            trim_left = "<";
+            trim_right = ">";
+          };
+          options = {
+            permanently_delete = true;
+            use_as_default_explorer = true;
+          };
+          windows = {
+            preview = true;
           };
         };
       };
