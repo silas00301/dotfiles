@@ -29,8 +29,6 @@
       end
 
       zellij pipe "zjstatus::pipe::pipe_current_cmd::fish"
-
-      clear
     '';
   };
   home.file."scripts/zjcmd.fish".text = ''
