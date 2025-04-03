@@ -290,6 +290,19 @@
     lsp = {
       enable = true;
       inlayHints = true;
+      keymaps = {
+        diagnostic = {
+          "<leader>n" = "goto_next";
+          "<leader>N" = "goto_prev";
+        };
+        lspBuf = {
+          K = "hover";
+          gD = "references";
+          gd = "definition";
+          gi = "implementation";
+          gt = "type_definition";
+        };
+      };
       servers = {
         lua_ls = {
           enable = true;
@@ -309,8 +322,11 @@
           installRustc = false;
           installCargo = false;
         };
+        zls.enable = true;
       };
     };
+
+    zig.enable = true;
 
     noice = {
       enable = true;
