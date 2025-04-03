@@ -41,18 +41,6 @@
         accent = "lavender";
       };
 
-      darwinConfiguration = {
-        inherit username;
-      };
-
-      nixosConfiguration = {
-        imports = [
-          ./baseConfiguration.nix
-          ./osSpecificConfigurations/nixos/nixos.nix
-        ];
-        inherit username;
-      };
-
       systems = {
         x86_64-linux = "x86_64-linux";
         aarch64-linux = "aarch64-linux";
@@ -128,13 +116,13 @@
         }
       );
 
-      getDarwinHomeForHost = (
-        system: host:
+      getHomeForHost = (
+        moduleName: system: host:
         let
           systemFolder = systemToFolderName.${system};
         in
         [
-          home-manager.darwinModules.home-manager
+          home-manager.${moduleName}.home-manager
           {
             home-manager = {
               useGlobalPkgs = true;
@@ -153,45 +141,17 @@
                 nixvim = self.packages.${system}.nixvim;
                 catppuccin = catppuccinConfig;
                 configName = host;
-                pkgs-stable = import nixpkgs-stable-darwin {
-                  system = system;
-                  config.allowUnfree = true;
-                };
-              };
-            };
-          }
-        ]
-      );
-
-      getNixOsHomeForHost = (
-        system: host:
-        let
-          systemFolder = systemToFolderName.${system};
-        in
-        [
-          home-manager.nixosModules.home-manager
-          {
-            home-manager = {
-              useGlobalPkgs = true;
-              useUserPackages = true;
-              backupFileExtension = "bak";
-              users.${username} = {
-                imports = [
-                  ./home/shared/systems/shared
-                  ./home/shared/systems/${systemFolder}/shared
-                  ./home/shared/systems/${systemFolder}/hosts/${host}
-                  catppuccin.homeModules.catppuccin
-                ];
-              };
-              extraSpecialArgs = {
-                inherit username;
-                nixvim = self.packages.${system}.nixvim;
-                catppuccin = catppuccinConfig;
-                configName = host;
-                pkgs-stable = import nixpkgs-stable-nixos {
-                  system = system;
-                  config.allowUnfree = true;
-                };
+                pkgs-stable =
+                  if systemFolder == "linux" then
+                    (import nixpkgs-stable-nixos {
+                      system = system;
+                      config.allowUnfree = true;
+                    })
+                  else
+                    (import nixpkgs-stable-darwin {
+                      system = system;
+                      config.allowUnfree = true;
+                    });
               };
             };
           }
@@ -209,7 +169,7 @@
               (getConfigurationModuleForSystemAndHost system folderName)
               lanzaboote.nixosModules.lanzaboote
               catppuccin.nixosModules.catppuccin
-            ] ++ (getNixOsHomeForHost system folderName);
+            ] ++ (getHomeForHost "nixosModules" system folderName);
           }
         ) (builtins.readDir ./hosts/nixos/hosts)
       );
@@ -226,7 +186,7 @@
                 system.configurationRevision = self.rev or self.dirtyRev or null;
               }
               (getConfigurationModuleForSystemAndHost system folderName)
-            ] ++ (getDarwinHomeForHost system folderName);
+            ] ++ (getHomeForHost "darwinModules" system folderName);
           }
         ) (builtins.readDir ./hosts/darwin/hosts)
       );
@@ -234,72 +194,7 @@
     {
       darwinConfigurations = darwinConfigurations darwinSystems.aarch64-darwin;
 
-      # darwinConfigurations = {
-      #   "wm" = nix-darwin.lib.darwinSystem {
-      #     modules = [
-      #       darwinConfiguration
-      #       home-manager.darwinModules.home-manager
-      #       {
-      #         home-manager.useGlobalPkgs = true;
-      #         home-manager.useUserPackages = true;
-      #         home-manager.backupFileExtension = "bak";
-      #         home-manager.users.${username} = {
-      #           imports = [
-      #             ./home/home.nix
-      #             ./home/homeMac.nix
-      #             catppuccin.homeModules.catppuccin
-      #           ];
-      #         };
-      #         home-manager.extraSpecialArgs = {
-      #           inherit username;
-      #           nixvim = self.packages.aarch64-darwin.nixvim;
-      #           catppuccin = catppuccinConfig;
-      #           configName = "wm";
-      #           pkgs-stable = import nixpkgs-stable-darwin {
-      #             system = "aarch64-darwin";
-      #             config.allowUnfree = true;
-      #           };
-      #         };
-      #       }
-      #     ];
-      #   };
-      # };
-
       nixosConfigurations = nixosConfigurations linuxSystems.x86_64-linux;
-
-      # nixosConfigurations = {
-      #   "nixos" = nixpkgs.lib.nixosSystem {
-      #     system = "x86_64-linux";
-      #     modules = [
-      #       nixosConfiguration
-      #       lanzaboote.nixosModules.lanzaboote
-      #       catppuccin.nixosModules.catppuccin
-      #       home-manager.nixosModules.home-manager
-      #       {
-      #         home-manager.useGlobalPkgs = true;
-      #         home-manager.useUserPackages = true;
-      #         home-manager.backupFileExtension = "bak";
-      #         home-manager.users.${username} = {
-      #           imports = [
-      #             ./home/home.nix
-      #             ./home/homeNixOS.nix
-      #             catppuccin.homeModules.catppuccin
-      #             nixvim.homeManagerModules.nixvim
-      #           ];
-      #         };
-      #         home-manager.extraSpecialArgs = {
-      #           inherit username;
-      #           nixvim = self.packages.x86_64-linux.nixvim;
-      #           catppuccin = catppuccinConfig;
-      #           pkgs-stable = import nixpkgs-stable-nixos {
-      #             system = "x86_64-linux";
-      #             config.allowUnfree = true;
-      #           };
-      #         };
-      #       }
-      #     ];
-      #   };
-      # };
 
       darwinPackages = self.darwinConfigurations."wm".pkgs;
 

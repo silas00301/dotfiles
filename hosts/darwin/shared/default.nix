@@ -35,7 +35,6 @@
   };
 
   system = {
-
     defaults = {
       WindowManager.EnableStandardClickToShowDesktop = false;
       controlcenter = {
