@@ -19,6 +19,7 @@
         tug = ["bookmark" "move" "--from" "heads(::@ & bookmarks())" "--to" "@"];
         insert = ["new" "--insert-before" "@"];
       };
+      git.private-commits = "description(glob:'private:*')";
     };
   };
 }
