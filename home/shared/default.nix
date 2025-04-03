@@ -24,7 +24,7 @@
   ];
 
   imports = [
-    ./themes
+    ./themes/catppuccin.nix
 
     ./programs/atuin.nix
     ./programs/bash.nix
@@ -38,7 +38,7 @@
     ./programs/fish.nix
     ./programs/fzf.nix
     # ./programs/ghostty.nix
-    ./programs/git/git.nix
+    ./programs/git.nix
     ./programs/github-cli.nix
     ./programs/jq.nix
     ./programs/kitty.nix
