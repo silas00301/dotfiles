@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ zjstatus, ... }:
 final: prev: {
-  zjstatus = pkgs.zjstatus.packages.${prev.system}.default;
+  zjstatus = zjstatus.packages.${prev.system}.default;
 }

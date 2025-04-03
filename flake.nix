@@ -35,6 +35,7 @@
       nixpkgs,
       lanzaboote,
       zen-browser,
+      zjstatus,
       ...
     }@inputs:
     let
@@ -77,14 +78,19 @@
 
       getInputsForSystem = (
         system:
+        let
+          overlays = getOverlaysForSystem system;
+        in
         inputs
         // {
           inherit system;
+          zjstatus = zjstatus;
           catppuccin = catppuccinConfig;
           self-path = builtins.path self;
           pkgs = import nixpkgs {
             inherit system;
             inherit catppuccin;
+            inherit overlays;
             config.allowUnfree = true;
           };
           pkgs-stable = import nixpkgs-stable-darwin {
@@ -126,9 +132,12 @@
 
       getOverlaysForSystem = (
         system:
-        builtins.mapAttrs (folderName: _: import ./overlays/${folderName} (getInputsForSystem system)) (
-          builtins.readDir ./overlays
-        )
+        let
+          systemInputs = getInputsForSystem system;
+        in
+        builtins.mapAttrs (folderName: _: {
+          nixpkgs.overlays = [ (import ./overlays/${folderName} systemInputs) ];
+        }) (builtins.readDir ./overlays)
       );
 
       getHomeForHost = (
@@ -149,7 +158,6 @@
                   ./home/systems/${systemFolder}/shared
                   ./home/systems/${systemFolder}/hosts/${host}
                   catppuccin.homeModules.catppuccin
-                  (getOverlaysForSystem system)
                 ];
               };
               extraSpecialArgs = {
@@ -205,11 +213,15 @@
             modules = [
               {
                 inherit username;
-                selfPackages = self.packages.${system};
                 system.stateVersion = 5;
                 system.configurationRevision = self.rev or self.dirtyRev or null;
               }
               (getConfigurationModuleForSystemAndHost system folderName)
+              {
+                _module.args = {
+                  selfPackages = self.packages.${system};
+                };
+              }
             ] ++ (getHomeForHost "darwinModules" system folderName);
           }
         ) (builtins.readDir ./hosts/darwin/hosts)
