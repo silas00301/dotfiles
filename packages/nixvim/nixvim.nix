@@ -204,6 +204,9 @@
     };
 
     rainbow-delimiters.enable = true;
+    
+    hunk.enable = true;
+
     telescope = {
       enable = true;
       extensions.frecency = {

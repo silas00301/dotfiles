@@ -6,7 +6,10 @@
         name = "Silas";
         email = "contact@silash.dev";
       };
-      ui.default-command = "log";
+      ui = {
+        default-command = "log";
+        diff-editor = ["nvim" "-c" "DiffEditor $left $right $output"];
+      };
       signing = {
         behavior = "own";
         backend = "ssh";
