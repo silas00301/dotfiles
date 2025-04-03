@@ -42,6 +42,7 @@
     # ./programs/ghostty.nix
     ./programs/git.nix
     ./programs/github-cli.nix
+    ./programs/gh-dash
     ./programs/jq.nix
     ./programs/jujutsu.nix
     # ./programs/kitty.nix

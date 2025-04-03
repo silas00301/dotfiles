@@ -1,7 +1,7 @@
 {
   programs.gh-dash = {
     enable = true;
-    settings =  {
+    settings = {
       theme.ui = {
         sectionsShowCount = true;
         table = {
