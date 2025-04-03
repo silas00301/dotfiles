@@ -56,6 +56,7 @@
     ./programs/yazi.nix
     ./programs/zoxide.nix
     ./programs/zellij.nix
+    ./programs/zen-browser.nix
     ./programs/zsh.nix
   ];
 

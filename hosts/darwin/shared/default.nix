@@ -13,7 +13,6 @@
     "logi-options+"
     #"obsidian"
     "raycast"
-    "zen"
     "elgato-stream-deck"
     "ghostty"
     "pgadmin4"
@@ -68,7 +67,7 @@
         expose-group-apps = true;
         autohide-delay = 0.24;
         persistent-apps = [
-          "/Applications/Zen.app/"
+          "/Users/${config.username}/Applications/Home Manager Apps/Zen Browser (Beta).app/"
           "/Users/${config.username}/Applications/Home Manager Apps/Spotify.app/"
           "/Applications/Ghostty.app/"
         ];
