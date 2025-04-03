@@ -33,6 +33,18 @@
           "--insert-before"
           "@"
         ];
+        reheat = [
+          "rebase"
+          "-d"
+          "trunk()"
+          "-s"
+          "roots(trunk()..stack(@))"
+        ];
+      };
+      revset-aliases = {
+        "stack()" = "stack(@)"
+        "stack(x)" = "stack(x, 2)"
+        "stack(x, n)" = "ancestors(reachable(x, mutable()), n)"
       };
       git.private-commits = "description(glob:'private:*')";
     };
