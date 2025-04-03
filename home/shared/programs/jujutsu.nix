@@ -24,7 +24,7 @@
       signing = {
         behavior = "own";
         backend = "ssh";
-        key = "~/.ssh/id_rsa_private.pub";
+        key = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIPViOU8+CC3RPIs8PAZyHaJYr+oXXNBPw2kAT/zeE9SJ";
       };
       aliases = {
         tug = [

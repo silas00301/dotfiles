@@ -11,7 +11,6 @@
   homebrew.casks = [
     # currently needs manual install because of some bug
     "logi-options+"
-    #"bitwarden-cli"
     #"obsidian"
     "raycast"
     "zen"

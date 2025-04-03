@@ -6,7 +6,6 @@
   home.packages = [
     pkgs.nerd-fonts.geist-mono
     pkgs.maple-mono.NF-CN
-    # pkgs.bitwarden-cli
     pkgs.rustup
     pkgs.bat
     pkgs.vue-language-server
@@ -30,6 +29,7 @@
     ./programs/atuin.nix
     ./programs/bash.nix
     ./programs/bat.nix
+    ./programs/bitwarden.nix
     ./programs/bottom.nix
     ./programs/bun.nix
     ./programs/brave.nix
@@ -52,7 +52,6 @@
     ./programs/nixvim.nix
     ./programs/ripgrep.nix
     ./programs/starship.nix
-    ./programs/thefuck.nix
     # ./programs/tmux.nix
     ./programs/yazi.nix
     ./programs/zoxide.nix
