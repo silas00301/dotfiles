@@ -16,6 +16,8 @@
     pkgs.obsidian
     pkgs.insomnia
     pkgs.zig
+    pkgs.nixd
+    pkgs.nil
   ];
 
   imports = [
