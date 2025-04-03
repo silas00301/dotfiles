@@ -2,7 +2,6 @@
   config,
   pkgs,
   lib,
-  self,
   ...
 }:
 
@@ -36,8 +35,7 @@
   };
 
   system = {
-    stateVersion = 5;
-    system.configurationRevision = self.rev or self.dirtyRev or null;
+
     defaults = {
       WindowManager.EnableStandardClickToShowDesktop = false;
       controlcenter = {

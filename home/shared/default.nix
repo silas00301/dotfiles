@@ -24,33 +24,33 @@
   ];
 
   imports = [
-    ./config/themes/catppuccin.nix
+    ./themes
 
-    ./config/programs/atuin.nix
-    ./config/programs/bash.nix
-    ./config/programs/bat.nix
-    ./config/programs/bottom.nix
-    ./config/programs/bun.nix
-    ./config/programs/direnv.nix
-    ./config/programs/eza.nix
-    ./config/programs/fastfetch.nix
-    ./config/programs/fd.nix
-    ./config/programs/fish.nix
-    ./config/programs/fzf.nix
-    # ./config/programs/ghostty.nix
-    ./config/programs/git/git.nix
-    ./config/programs/github-cli.nix
-    ./config/programs/jq.nix
-    ./config/programs/kitty.nix
-    ./config/programs/lazygit.nix
-    ./config/programs/nixvim.nix
-    ./config/programs/ripgrep.nix
-    ./config/programs/starship.nix
-    ./config/programs/thefuck.nix
-    ./config/programs/tmux.nix
-    ./config/programs/zoxide.nix
-    ./config/programs/zellij.nix
-    ./config/programs/zsh.nix
+    ./programs/atuin.nix
+    ./programs/bash.nix
+    ./programs/bat.nix
+    ./programs/bottom.nix
+    ./programs/bun.nix
+    ./programs/direnv.nix
+    ./programs/eza.nix
+    ./programs/fastfetch.nix
+    ./programs/fd.nix
+    ./programs/fish.nix
+    ./programs/fzf.nix
+    # ./programs/ghostty.nix
+    ./programs/git/git.nix
+    ./programs/github-cli.nix
+    ./programs/jq.nix
+    ./programs/kitty.nix
+    ./programs/lazygit.nix
+    ./programs/nixvim.nix
+    ./programs/ripgrep.nix
+    ./programs/starship.nix
+    ./programs/thefuck.nix
+    ./programs/tmux.nix
+    ./programs/zoxide.nix
+    ./programs/zellij.nix
+    ./programs/zsh.nix
   ];
 
   home.sessionVariables = { };
