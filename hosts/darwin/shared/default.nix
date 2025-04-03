@@ -6,10 +6,6 @@
 }:
 
 {
-  imports = [
-    ./nonNixOsConfiguration.nix
-  ];
-
   homebrew.enable = true;
 
   homebrew.casks = [

@@ -1,10 +1,10 @@
 {
   imports = [
-    ./config/programs/chromium.nix
-    ./config/programs/ghostty.nix
-    ./config/programs/hypr.nix
-    ./config/programs/rofi.nix
-    ./config/programs/waybar.nix
+    ../../../programs/chromium.nix
+    ../../../programs/ghostty.nix
+    ../../../programs/hypr.nix
+    ../../../programs/rofi.nix
+    ../../../programs/waybar.nix
   ];
 
   gtk.enable = true;
