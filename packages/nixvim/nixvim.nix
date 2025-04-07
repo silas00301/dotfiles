@@ -42,28 +42,89 @@
 
   keymaps = [
     {
-      action = "<cmd>Telescope live_grep<CR>";
+      mode = "n";
       key = "<leader>sg";
+      action = "<cmd>Telescope live_grep<CR>";
     }
     {
-      action = "<cmd>Telescope git_files<CR>";
+      mode = "n";
       key = "<leader>sf";
+      action = "<cmd>Telescope git_files<CR>";
     }
     {
-      action = "<cmd>Telescope find_files<CR>";
+      mode = "n";
       key = "<leader>sa";
+      action = "<cmd>Telescope find_files<CR>";
     }
     {
-      action = "<cmd>Oil<CR>";
+      mode = "n";
       key = "<leader>f";
+      action = "<cmd>Oil<CR>";
     }
     {
-      action = "<cmd>LazyGit<CR>";
+      mode = "n";
       key = "<leader>g";
+      action = "<cmd>LazyGit<CR>";
     }
     {
-      action = "<cmd>Noice telescope<CR>";
+      mode = "n";
       key = "<leader>n";
+      action = "<cmd>Noice telescope<CR>";
+    }
+    {
+      mode = "n";
+      key = "<leader>ha";
+      action.__raw = "function() require'harpoon':list():add() end";
+    }
+    {
+      mode = "n";
+      key = "<leader>hl";
+      action.__raw = "function() require'harpoon'.ui:toggle_quick_menu(require'harpoon':list()) end";
+    }
+    {
+      mode = "n";
+      key = "<leader>1";
+      action.__raw = "function() require'harpoon':list():select(1) end";
+    }
+    {
+      mode = "n";
+      key = "<leader>2";
+      action.__raw = "function() require'harpoon':list():select(2) end";
+    }
+    {
+      mode = "n";
+      key = "<leader>3";
+      action.__raw = "function() require'harpoon':list():select(3) end";
+    }
+    {
+      mode = "n";
+      key = "<leader>4";
+      action.__raw = "function() require'harpoon':list():select(4) end";
+    }
+    {
+      mode = "n";
+      key = "<leader>5";
+      action.__raw = "function() require'harpoon':list():select(5) end";
+    }
+    {
+      mode = "n";
+      key = "<leader>6";
+      action.__raw = "function() require'harpoon':list():select(6) end";
+    }
+    {
+      mode = "n";
+      key = "<leader>7";
+      action.__raw = "function() require'harpoon':list():select(7) end";
+    }
+    {
+      mode = "n";
+      key = "<leader>8";
+      action.__raw = "function() require'harpoon':list():select(8) end";
+    }
+    {
+      mode = "n";
+      key = "<leader>9";
+      action.__raw = "function() require'harpoon':list():select(9) end";
     }
   ];
 
@@ -231,20 +292,6 @@
     harpoon = {
       enable = true;
       enableTelescope = true;
-      keymaps = {
-        addFile = "<leader>ha";
-        toggleQuickMenu = "<leader>hl";
-        navFile = {
-          "1" = "<leader>1";
-          "2" = "<leader>2";
-          "3" = "<leader>3";
-          "4" = "<leader>4";
-          "5" = "<leader>5";
-          "6" = "<leader>6";
-          "7" = "<leader>7";
-          "8" = "<leader>8";
-        };
-      };
     };
     treesitter = {
       enable = true;
