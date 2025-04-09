@@ -43,6 +43,7 @@
     ./programs/jq.nix
     ./programs/kitty.nix
     ./programs/lazygit.nix
+    ./programs/nushell.nix
     ./programs/nixvim.nix
     ./programs/ripgrep.nix
     ./programs/starship.nix
