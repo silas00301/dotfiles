@@ -16,6 +16,7 @@
     #"obsidian"
     "raycast"
     "arc"
+    "elgato-stream-deck"
   ];
 
   environment.interactiveShellInit = ''
