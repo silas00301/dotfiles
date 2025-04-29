@@ -295,7 +295,6 @@
     };
     treesitter = {
       enable = true;
-      package = pkgs-stable.vimPlugins.nvim-treesitter;
       settings = {
         highlight.enable = true;
         indent.enable = true;

@@ -1,7 +1,7 @@
 {
   programs.zsh = {
     enable = true;
-    initExtra = ''
+    initContent = ''
       fish
     '';
   };
