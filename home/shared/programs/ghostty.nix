@@ -1,4 +1,3 @@
-{ pkgs, ... }:
 {
   programs.ghostty = {
     enable = true;
@@ -8,6 +7,8 @@
     settings = {
       theme = "catppuccin-mocha";
       backgrond-opacity = 0.9;
+      font-family = "Maple Mono NF";
+      background-blur = true;
     };
   };
 }
