@@ -1,7 +1,6 @@
 {
   lib,
   pkgs,
-  pkgs-stable,
   catppuccin,
   ...
 }:
@@ -60,6 +59,11 @@
       mode = "n";
       key = "<leader>f";
       action = "<cmd>Oil<CR>";
+    }
+    {
+      mode = "n";
+      key = "<leader>y";
+      action = "<cmd>Yazi<CR>";
     }
     {
       mode = "n";
@@ -199,6 +203,7 @@
     oil.enable = true;
     dressing.enable = true;
     web-devicons.enable = true;
+    yazi.enable = true;
     lsp-format = {
       enable = true;
       autoLoad = true;
