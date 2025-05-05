@@ -49,6 +49,7 @@
     ./programs/starship.nix
     ./programs/thefuck.nix
     ./programs/tmux.nix
+    ./programs/yazi.nix
     ./programs/zoxide.nix
     ./programs/zellij.nix
     ./programs/zsh.nix
