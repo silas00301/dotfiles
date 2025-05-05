@@ -59,7 +59,7 @@
         persistent-apps = [
           "/Applications/Arc.app/"
           "/Users/${config.username}/Applications/Home Manager Apps/Spotify.app/"
-          "${pkgs.kitty}/Applications/kitty.app"
+          "/Applications/Ghostty.app/"
         ];
         persistent-others = [
           "/Users/${config.username}/Downloads/"
