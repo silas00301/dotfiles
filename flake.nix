@@ -130,10 +130,9 @@
               backupFileExtension = "bak";
               users.${username} = {
                 imports = [
-                  ./home/shared/default.nix
-                  ./home/shared/systems/shared
-                  ./home/shared/systems/${systemFolder}/shared
-                  ./home/shared/systems/${systemFolder}/hosts/${host}
+                  ./home/shared
+                  ./home/systems/${systemFolder}/shared
+                  ./home/systems/${systemFolder}/hosts/${host}
                   catppuccin.homeModules.catppuccin
                 ];
               };
