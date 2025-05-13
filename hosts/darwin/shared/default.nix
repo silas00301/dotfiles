@@ -17,6 +17,7 @@
     "raycast"
     "arc"
     "elgato-stream-deck"
+    "ghostty"
   ];
 
   environment.interactiveShellInit = ''
