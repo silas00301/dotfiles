@@ -26,6 +26,8 @@
 
   security.pam.services.sudo_local.touchIdAuth = true;
 
+  system.primaryUser = config.username;
+
   users.users.${config.username}.shell = lib.mkForce pkgs.fish;
 
   nixpkgs = {
