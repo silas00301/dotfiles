@@ -40,7 +40,11 @@
 
   system = {
     defaults = {
-      WindowManager.EnableStandardClickToShowDesktop = false;
+      WindowManager = {
+        EnableStandardClickToShowDesktop = false;
+        EnableTilingByEdgeDrag = false;
+        EnableTilingOptionAccelerator = false;
+      };
       controlcenter = {
         AirDrop = false;
         BatteryShowPercentage = false;
@@ -57,7 +61,7 @@
         autohide-time-modifier = 0.2;
         mineffect = "genie";
         show-recents = false;
-
+        expose-group-apps = true;
         autohide-delay = 0.24;
         persistent-apps = [
           "/Applications/Arc.app/"
@@ -83,6 +87,7 @@
         ApplePressAndHoldEnabled = false;
         NSAutomaticPeriodSubstitutionEnabled = false;
         NSAutomaticCapitalizationEnabled = false;
+        NSWindowShouldDragOnGesture = true;
         AppleInterfaceStyle = "Dark";
         "com.apple.keyboard.fnState" = true;
       };

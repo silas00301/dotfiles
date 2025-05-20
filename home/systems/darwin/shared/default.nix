@@ -3,6 +3,10 @@
 {
   home.homeDirectory = lib.mkForce "/Users/${inputs.username}";
 
+  imports = [
+    ../../../shared/programs/aerospace.nix
+  ];
+
   programs.fish = {
     shellInit = ''
       eval "$(/opt/homebrew/bin/brew shellenv)" 
