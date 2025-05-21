@@ -16,7 +16,7 @@
     pkgs.bat-extras.batpipe
     pkgs.bat-extras.batdiff
     pkgs.lazydocker
-    pkgs.dogdns
+    # pkgs.dogdns
     pkgs.glow
     pkgs.obsidian
     pkgs.spotify
@@ -41,14 +41,14 @@
     ./programs/git.nix
     ./programs/github-cli.nix
     ./programs/jq.nix
-    ./programs/kitty.nix
+    # ./programs/kitty.nix
     ./programs/lazygit.nix
     ./programs/nushell.nix
     ./programs/nixvim.nix
     ./programs/ripgrep.nix
     ./programs/starship.nix
     ./programs/thefuck.nix
-    ./programs/tmux.nix
+    # ./programs/tmux.nix
     ./programs/yazi.nix
     ./programs/zoxide.nix
     ./programs/zellij.nix
