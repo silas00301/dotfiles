@@ -24,6 +24,9 @@ in
           "Ctrl x" = {
             SwitchToMode = "pane";
           };
+          "Ctrl m" = {
+            SwitchToMode = "move";
+          };
         };
         pane = makeKeyBindings {
           "h" = {
