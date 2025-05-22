@@ -21,6 +21,7 @@
     pkgs.obsidian
     pkgs.spotify
     pkgs.jujutsu
+    pkgs.insomnia
   ];
 
   imports = [

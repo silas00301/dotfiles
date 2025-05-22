@@ -17,6 +17,7 @@
     "arc"
     "elgato-stream-deck"
     "ghostty"
+    "pgadmin4"
   ];
 
   environment.interactiveShellInit = ''
