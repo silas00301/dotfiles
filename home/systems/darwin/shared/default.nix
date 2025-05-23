@@ -5,6 +5,7 @@
 
   imports = [
     ../../../shared/programs/aerospace.nix
+    ../../../shared/services/janky-borders.nix
   ];
 
   programs.fish = {
