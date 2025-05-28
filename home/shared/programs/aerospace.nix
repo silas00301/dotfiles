@@ -2,7 +2,7 @@
   programs.aerospace = {
     enable = true;
     userSettings = {
-      "start-at-login" = true;
+      start-at-login = true;
       gaps = {
         outer.left = 7;
         outer.bottom = 7;
@@ -75,13 +75,28 @@
           "move-node-to-workspace 8"
           "workspace 8"
         ];
-        ctrl-alt-cmd-shift-1 = [ "move-node-to-workspace 9" "workspace 9" ];
-        ctrl-alt-cmd-shift-2 = [ "move-node-to-workspace 10" "workspace 10" ];
-        ctrl-alt-cmd-shift-3 = [ "move-node-to-workspace 11" "workspace 11" ];
-        ctrl-alt-cmd-shift-4 = [ "move-node-to-workspace 12" "workspace 12" ];
+        ctrl-alt-cmd-shift-1 = [
+          "move-node-to-workspace 9"
+          "workspace 9"
+        ];
+        ctrl-alt-cmd-shift-2 = [
+          "move-node-to-workspace 10"
+          "workspace 10"
+        ];
+        ctrl-alt-cmd-shift-3 = [
+          "move-node-to-workspace 11"
+          "workspace 11"
+        ];
+        ctrl-alt-cmd-shift-4 = [
+          "move-node-to-workspace 12"
+          "workspace 12"
+        ];
 
         alt-tab = "workspace-back-and-forth";
         alt-shift-tab = "move-workspace-to-monitor --wrap-around next";
+
+        ctrl-shift-1 = "layout tiles horizontal vertical";
+        ctrl-shift-2 = "layout accordion horizontal vertical";
       };
     };
   };
