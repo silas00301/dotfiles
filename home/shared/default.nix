@@ -32,6 +32,7 @@
     ./programs/bat.nix
     ./programs/bottom.nix
     ./programs/bun.nix
+    ./programs/brave.nix
     ./programs/direnv.nix
     ./programs/eza.nix
     ./programs/fastfetch.nix

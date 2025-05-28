@@ -1,7 +1,5 @@
 {
   imports = [
-    ../../../shared/programs/chromium.nix
-    ../../../shared/programs/chromium.nix
     ../../../shared/programs/ghostty.nix
     ../../../shared/programs/hypr.nix
     ../../../shared/programs/rofi.nix
