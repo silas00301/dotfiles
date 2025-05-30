@@ -14,7 +14,7 @@
     #"bitwarden-cli"
     #"obsidian"
     "raycast"
-    "arc"
+    "zen"
     "elgato-stream-deck"
     "ghostty"
     "pgadmin4"
@@ -64,7 +64,7 @@
         expose-group-apps = true;
         autohide-delay = 0.24;
         persistent-apps = [
-          "/Applications/Arc.app/"
+          "/Applications/Zen.app/"
           "/Users/${config.username}/Applications/Home Manager Apps/Spotify.app/"
           "/Applications/Ghostty.app/"
         ];
