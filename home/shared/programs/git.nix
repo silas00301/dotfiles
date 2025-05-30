@@ -39,6 +39,10 @@
         autoStash = true;
         updateRefs = true;
       };
+      url = {
+        "git@github.com".insteadOf = "gh";
+        "git@github.com:silas00301".insteadOf = "me";
+      };
       pull.rebase = true;
       merge.conflictStyle = "zdiff3";
       branch.sort = "-committerdate";
