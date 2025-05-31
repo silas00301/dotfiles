@@ -8,9 +8,8 @@ in
     xwayland.enable = true;
     settings = {
       monitor = [
-        "DP-1, 2560x1440@144, 1440x0, 1"
-        "HDMI-1, 1920x1080@60, 2300x275, 1"
-        "DVI-D-1, 1440x900@59.89, 0x400, 1"
+        "HDMI-1, 1920x1080@60, 0x0, 1"
+        "DP-1, 2560x1440@144, auto-right, 1"
       ];
 
       "$mod" = "SUPER";
@@ -23,13 +22,14 @@ in
 
       bind = [
         "$mod, Q, killactive"
-        "$mod, W, exec, kitty"
-        "$mod, RETURN, exec, kitty"
+        "$mod, W, exec, ghostty"
+        "$mod, RETURN, exec, ghostty"
         "$mod, B, exec, brave"
         "$mod, L, exec, hyprlock"
         "ALT, SPACE, exec, killall rofi || rofi -show drun"
         "$mod, SPACE, togglefloating"
         "$mod, F, fullscreen, 1"
+        "SUPER ALT CTRL SHIFT, Q, exec, hyprctl dispatch exit"
 
         "$mod, 1, workspace, 1"
         "$mod, 2, workspace, 2"
@@ -104,37 +104,38 @@ in
         ];
 
         windowrule = [
-          "float, file_progress"
-          "float, confirm"
-          "float, dialog"
-          "float, download"
-          "float, notification"
-          "float, error"
-          "float, splash"
-          "float, confirmreset"
+          "float, title:file_progress"
+          "float, title:confirm"
+          "float, title:dialog"
+          "float, title:download"
+          "float, title:notification"
+          "float, title:error"
+          "float, title:splash"
+          "float, title:confirmreset"
           "float, title:Open File"
           "float, title:branchdialog"
-          "float, Lxappearance"
-          "float, Rofi"
-          "float, jetbrains-toolbox "
-          "animation none,Rofi"
-          "float,viewnior"
-          "float,feh"
-          "float, pavucontrol-qt"
-          "float, pavucontrol"
-          "float, file-roller"
-          "fullscreen, wlogout"
+          "float, title:Lxappearance"
+          "float, title:Rofi"
+          "float, title:jetbrains-toolbox"
+          "animation none, title:Rofi"
+          "float, title:viewnior"
+          "float, title:feh"
+          "float, title:pavucontrol-qt"
+          "float, title:pavucontrol"
+          "float, title:file-roller"
+          "fullscreen, title:wlogout"
           "float, title:wlogout"
           "fullscreen, title:wlogout"
-          "idleinhibit focus, mpv"
-          "idleinhibit fullscreen, firefox"
-          "fullscreen, spotify"
+          "idleinhibit focus, title:mpv"
+          "idleinhibit fullscreen, title:firefox"
+          "idleinhibit fullscreen, title:brave"
+          "fullscreen, title:spotify"
           "float, title:^(Media viewer)$"
           "float, title:^(Volume Control)$"
           "float, title:^(Picture-in-Picture)$"
           "size 800 600, title:^(Volume Control)$"
           "move 75 44%, title:^(Volume Control)$"
-          "opacity 0.5, waybar"
+          "opacity 0.5, title:waybar"
         ];
       };
     };

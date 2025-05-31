@@ -14,15 +14,33 @@
   ];
 
   # Bootloader.
-  boot.loader.systemd-boot.enable = lib.mkForce false; # true
   boot.loader.efi.canTouchEfiVariables = true;
 
-  #boot.plymouth.enable = true;
+  boot.loader.grub = {
+    enable = true;
+    devices = [ "nodev" ];
+    efiSupport = true;
+    useOSProber = true;
+  };
+
+  boot.plymouth.enable = true;
 
   boot.lanzaboote = {
-    enable = true;
+    enable = false;
     pkiBundle = "/var/lib/sbctl";
   };
+
+  hardware = {
+    graphics.enable = true;
+    nvidia = {
+      modesetting.enable = true;
+      open = true;
+      nvidiaSettings = true;
+      package = config.boot.kernelPackages.nvidiaPackages.stable;
+    };
+  };
+
+  services.xserver.videoDrivers = [ "nvidia" ];
 
   networking.hostName = "nixos"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
@@ -57,9 +75,11 @@
   # Enable the X11 windowing system.
   services.xserver.enable = true;
 
-  # Enable the GNOME Desktop Environment.
-  services.xserver.displayManager.gdm.enable = true;
-  services.xserver.desktopManager.gnome.enable = true;
+  services.displayManager.sddm = {
+    enable = true;
+    wayland.enable = true;
+  };
+  services.desktopManager.plasma6.enable = true;
 
   #Enable Hyprland
   programs.hyprland.enable = true;
@@ -109,7 +129,6 @@
     ];
     packages = with pkgs; [
       firefox
-      wl-clipboard
       gparted
       nerd-fonts.geist-mono
       maple-mono.NF
@@ -122,9 +141,10 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-    #  wget
+    wget
+    unzip
     sbctl
+    wl-clipboard
   ];
 
   # Some programs need SUID wrappers, can be configured further or are

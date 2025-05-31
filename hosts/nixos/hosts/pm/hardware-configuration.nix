@@ -19,8 +19,8 @@
     "xhci_pci"
     "ahci"
     "usb_storage"
-    "uas"
     "usbhid"
+    "uas"
     "sd_mod"
   ];
   boot.initrd.kernelModules = [ ];
@@ -28,16 +28,17 @@
   boot.extraModulePackages = [ ];
 
   fileSystems."/" = {
-    device = "/dev/disk/by-uuid/96a5f59e-0f3e-4fc3-b51d-b8e049ec81fa";
+    device = "/dev/disk/by-uuid/ce914d41-41dd-4ca2-b877-47a725abfc71";
     fsType = "ext4";
   };
 
-  boot.initrd.luks.devices."luks-4b22fa18-1d15-4ae5-804a-bcf241ccc9c5".device =
-    "/dev/disk/by-uuid/4b22fa18-1d15-4ae5-804a-bcf241ccc9c5";
-
   fileSystems."/boot" = {
-    device = "/dev/disk/by-uuid/A817-95B7";
+    device = "/dev/disk/by-uuid/B3C1-9667";
     fsType = "vfat";
+    options = [
+      "fmask=0022"
+      "dmask=0022"
+    ];
   };
 
   swapDevices = [ ];
