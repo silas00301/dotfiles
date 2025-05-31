@@ -48,7 +48,7 @@
         background-color: @surface0
       }
 
-      #custom-music,
+      #custom-spotify-status,
       #tray,
       #backlight,
       #clock,
@@ -93,7 +93,7 @@
         margin-left: 1rem;
       }
 
-      #custom-music {
+      #custom-spotify-status {
         color: @mauve;
         border-radius: 1rem;
       }
@@ -121,6 +121,7 @@
         modules-left = [ "hyprland/workspaces" ];
         modules-center = [ "hyprland/window" ];
         modules-right = [
+          "custom/spotify-status"
           "pulseaudio"
           "clock"
           "tray"
@@ -131,6 +132,13 @@
         };
         clock = {
           format = "{0:%H:%M} {0:%Y-%m-%d}";
+        };
+        "custom/spotify-status" = {
+          format = "{text}";
+          return-type = "text";
+          max-length = 40;
+          escape = true;
+          exec = "spt-st";
         };
         pulseaudio = {
           scroll-step = 1;

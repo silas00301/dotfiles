@@ -130,8 +130,15 @@
     packages = with pkgs; [
       firefox
       gparted
+      lxqt.pavucontrol-qt
+    ];
+  };
+
+  fonts = {
+    packages = with pkgs; [
       nerd-fonts.geist-mono
-      maple-mono.NF
+      maple-mono.NF-CN
+      noto-fonts
     ];
   };
 

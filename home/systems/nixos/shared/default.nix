@@ -1,9 +1,17 @@
-{
+{ pkgs, ... }: {
   imports = [
     ../../../shared/programs/ghostty.nix
     ../../../shared/programs/hypr.nix
     ../../../shared/programs/rofi.nix
+    ../../../shared/programs/spotify-player.nix
     ../../../shared/programs/waybar.nix
+
+    ../../../shared/services/spotifyd.nix
+  ];
+
+  home.packages = [
+    pkgs.discord
+    (pkgs.writeShellScriptBin "spt-st" ../../../shared/scripts/spotify-status.sh)
   ];
 
   gtk.enable = true;
