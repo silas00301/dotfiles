@@ -20,7 +20,6 @@
     pkgs.glow
     pkgs.obsidian
     pkgs.spotify
-    pkgs.jujutsu
     pkgs.insomnia
   ];
 
@@ -43,6 +42,7 @@
     ./programs/git.nix
     ./programs/github-cli.nix
     ./programs/jq.nix
+    ./programs/jujutsu.nix
     # ./programs/kitty.nix
     ./programs/lazygit.nix
     ./programs/nushell.nix
