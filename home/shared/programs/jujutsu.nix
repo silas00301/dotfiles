@@ -7,7 +7,6 @@
         email = "contact@silash.dev";
       };
       ui.default-command = "log";
-      ui.editor = ":builtin";
       ui.paginate = "never";
       signing = {
         behavior = "own";
