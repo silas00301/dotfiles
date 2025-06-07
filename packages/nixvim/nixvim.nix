@@ -204,6 +204,7 @@
     dressing.enable = true;
     web-devicons.enable = true;
     yazi.enable = true;
+    neocord.enable = true;
     lsp-format = {
       enable = true;
       autoLoad = true;

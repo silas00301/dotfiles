@@ -21,6 +21,7 @@
     pkgs.obsidian
     pkgs.spotify
     pkgs.insomnia
+    pkgs.vesktop
   ];
 
   imports = [
