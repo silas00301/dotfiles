@@ -1,4 +1,4 @@
-{ pkgs, ... }: {
+{ pkgs, zen-browser,  ... }: {
   imports = [
     ../../../shared/programs/ghostty.nix
     ../../../shared/programs/hypr.nix
@@ -12,6 +12,7 @@
   home.packages = [
     pkgs.discord
     (pkgs.writeShellScriptBin "spt-st" ../../../shared/scripts/spotify-status.sh)
+    zen-browser.packages.${pkgs.system}.default
   ];
 
   gtk.enable = true;

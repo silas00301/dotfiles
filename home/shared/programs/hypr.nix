@@ -24,7 +24,7 @@ in
         "$mod, Q, killactive"
         "$mod, W, exec, ghostty"
         "$mod, RETURN, exec, ghostty"
-        "$mod, B, exec, brave"
+        "$mod, B, exec, zen"
         "$mod, L, exec, hyprlock"
         "ALT, SPACE, exec, killall rofi || rofi -show drun"
         "$mod, SPACE, togglefloating"

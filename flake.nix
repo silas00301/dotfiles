@@ -18,6 +18,8 @@
     nixvim.inputs.nixpkgs.follows = "nixpkgs";
 
     lanzaboote.url = "github:nix-community/lanzaboote/v0.4.1";
+
+    zen-browser.url = "github:youwen5/zen-browser-flake";
   };
 
   outputs =
@@ -30,6 +32,7 @@
       nixpkgs-stable-nixos,
       nixpkgs,
       lanzaboote,
+      zen-browser,
       ...
     }@inputs:
     let
@@ -141,6 +144,7 @@
                 nixvim = self.packages.${system}.nixvim;
                 catppuccin = catppuccinConfig;
                 configName = host;
+                zen-browser = zen-browser;
                 pkgs-stable =
                   if systemFolder == "linux" then
                     (import nixpkgs-stable-nixos {
