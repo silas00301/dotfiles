@@ -9,6 +9,7 @@
       background-opacity = 0.9;
       font-family = "Maple Mono NF";
       background-blur = true;
+      confirm-close-surface = false;
     };
   };
 }
