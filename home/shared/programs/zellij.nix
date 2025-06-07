@@ -18,6 +18,7 @@ in
     enableBashIntegration = true;
     attachExistingSession = true;
     settings = {
+      show_startup_tips = false;
       ui.pane_frames.rounded_corners = true;
       keybinds = {
         normal = makeKeyBindings {
