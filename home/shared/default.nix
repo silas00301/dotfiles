@@ -45,6 +45,7 @@
     ./programs/jujutsu.nix
     # ./programs/kitty.nix
     ./programs/lazygit.nix
+    ./programs/nh.nix
     ./programs/nushell.nix
     ./programs/nixvim.nix
     ./programs/ripgrep.nix
