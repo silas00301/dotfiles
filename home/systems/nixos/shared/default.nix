@@ -1,4 +1,5 @@
-{ pkgs, zen-browser,  ... }: {
+{ pkgs, zen-browser, ... }:
+{
   imports = [
     ../../../shared/programs/ghostty.nix
     ../../../shared/programs/hypr.nix

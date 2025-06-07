@@ -101,9 +101,7 @@
 
       packages = builtins.mapAttrs (system: _: getPackagesForSystem system) systems;
 
-      formatters = builtins.mapAttrs (
-        system: _: nixpkgs.legacyPackages.${system}.nixfmt-rfc-style
-      ) systems;
+      formatters = builtins.mapAttrs (system: _: nixpkgs.legacyPackages.${system}.nixfmt-tree) systems;
 
       getConfigurationModuleForSystemAndHost = (
         system: host:
