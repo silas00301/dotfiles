@@ -1,4 +1,9 @@
-{ pkgs, zen-browser, ... }:
+{
+  pkgs,
+  zen-browser,
+  selfPackages,
+  ...
+}:
 {
   imports = [
     ../../../shared/programs/ghostty.nix
@@ -12,7 +17,7 @@
 
   home.packages = [
     pkgs.discord
-    (pkgs.writeShellScriptBin "spt-st" ../../../shared/scripts/spotify-status.sh)
+    selfPackages.spt-st
     zen-browser.packages.${pkgs.system}.default
   ];
 
@@ -26,7 +31,7 @@
     shellAbbrs = {
       rebuild = {
         position = "command";
-        expansion = "sudo nixos-rebuild switch --flake ~/dotfiles#pm";
+        expansion = "nh os switch";
       };
     };
   };

@@ -5,7 +5,7 @@
 {
   config,
   pkgs,
-  lib,
+  selfPackages,
   ...
 }:
 {
@@ -38,6 +38,31 @@
       nvidiaSettings = true;
       package = config.boot.kernelPackages.nvidiaPackages.stable;
     };
+  };
+
+  systemd.user.services."spt-st" = {
+    name = "spt-st";
+    description = "spt-st auto fetch";
+    startAt = "*-*-* *:*:0/30";
+
+    serviceConfig = {
+      Type = "oneshot";
+    };
+
+    path = with pkgs; [
+      spotify-player
+      jq
+    ];
+
+    script = ''
+      mkdir -p /tmp/bar || true
+      playing="$(${selfPackages.spt-st}/bin/spt-st)"
+      if [[ "$playing" != "" ]]; then
+        echo "$playing" > /tmp/bar/spt-status
+      else
+        rm /tmp/bar/spt-status || true
+      fi
+    '';
   };
 
   services.xserver.videoDrivers = [ "nvidia" ];

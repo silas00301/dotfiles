@@ -137,8 +137,9 @@
           format = "{text}";
           return-type = "text";
           max-length = 40;
+          interval = 15;
           escape = true;
-          exec = "spt-st";
+          exec = "cat /tmp/bar/spt-status";
         };
         pulseaudio = {
           scroll-step = 1;

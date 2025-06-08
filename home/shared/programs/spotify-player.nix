@@ -279,7 +279,7 @@
   };
 
   catppuccin.spotify-player.enable = false;
-  
+
   home.packages = [
     pkgs.librespot
   ];

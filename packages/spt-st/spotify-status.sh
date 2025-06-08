@@ -15,4 +15,8 @@ get_song() {
 
 playback=$(spotify_player get key playback)
 
-echo "$(get_song) · $(get_artists)"
+if [[ "$(echo "$playback" | jq .is_playing)" == 'true' ]]; then
+  echo "$(get_song) · $(get_artists)"
+else
+  echo ""
+fi
