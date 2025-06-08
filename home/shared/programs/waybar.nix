@@ -18,7 +18,7 @@
       }
 
       #workspaces {
-        border-radius: 1rem;
+        border-radius: 16px;
         margin: 5px;
         background-color: @surface0;
         margin-left: 1rem;
@@ -26,23 +26,23 @@
 
       #workspaces button {
         color: @lavender;
-        border-radius: 1rem;
+        border-radius: 16px;
         padding: 0.4rem;
       }
 
       #workspaces button.active {
         color: @sky;
-        border-radius: 1rem;
+        border-radius: 16px;
       }
 
       #workspaces button:hover {
         color: @sapphire;
-        border-radius: 1rem;
+        border-radius: 16px;
       }
 
       #window {
         color: @lavender;
-        border-radius: 1rem;
+        border-radius: 16px;
         padding: 0.5rem 1rem;
         margin: 5px 0;
         background-color: @surface0
@@ -63,7 +63,7 @@
 
       #clock {
         color: @blue;
-        border-radius: 0px 1rem 1rem 0px;
+        border-radius: 0px 16px 16px 0px;
         margin-right: 1rem;
       }
 
@@ -89,29 +89,29 @@
 
       #pulseaudio {
         color: @maroon;
-        border-radius: 1rem 0px 0px 1rem;
+        border-radius: 16px 0px 0px 16px;
         margin-left: 1rem;
       }
 
       #custom-spotify-status {
         color: @mauve;
-        border-radius: 1rem;
+        border-radius: 16px;
       }
 
       #custom-lock {
-          border-radius: 1rem 0px 0px 1rem;
+          border-radius: 16px 0px 0px 16px;
           color: @lavender;
       }
 
       #custom-power {
           margin-right: 1rem;
-          border-radius: 0px 1rem 1rem 0px;
+          border-radius: 0px 16px 16px 0px;
           color: @red;
       }
 
       #tray {
-        margin-right: 1rem;
-        border-radius: 1rem;
+        margin-left: 1rem;
+        border-radius: 16px;
       }
     '';
     settings = {
@@ -122,9 +122,9 @@
         modules-center = [ "hyprland/window" ];
         modules-right = [
           "custom/spotify-status"
+          "tray"
           "pulseaudio"
           "clock"
-          "tray"
         ];
         tray = {
           icon-size = 21;
