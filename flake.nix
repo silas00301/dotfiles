@@ -80,6 +80,11 @@
           inherit system;
           catppuccin = catppuccinConfig;
           self-path = builtins.path self;
+          pkgs = import nixpkgs {
+            inherit system;
+            inherit catppuccin;
+            config.allowUnfree = true;
+          };
           pkgs-stable = import nixpkgs-stable-darwin {
             inherit system;
             inherit catppuccin;
@@ -139,7 +144,7 @@
               };
               extraSpecialArgs = {
                 inherit username;
-                nixvim = self.packages.${system}.nixvim;
+                selfPackages = self.packages.${system};
                 catppuccin = catppuccinConfig;
                 configName = host;
                 zen-browser = zen-browser;
@@ -162,6 +167,9 @@
 
       nixosConfigurations = (
         system:
+        let
+          selfPackages = self.packages.${system};
+        in
         builtins.mapAttrs (
           folderName: _:
           nixpkgs.lib.nixosSystem {
@@ -169,6 +177,9 @@
             modules = [
               { inherit username; }
               (getConfigurationModuleForSystemAndHost system folderName)
+              {
+                _module.args = { inherit selfPackages; };
+              }
               lanzaboote.nixosModules.lanzaboote
               catppuccin.nixosModules.catppuccin
             ] ++ (getHomeForHost "nixosModules" system folderName);
@@ -184,6 +195,7 @@
             modules = [
               {
                 inherit username;
+                selfPackages = self.packages.${system};
                 system.stateVersion = 5;
                 system.configurationRevision = self.rev or self.dirtyRev or null;
               }
