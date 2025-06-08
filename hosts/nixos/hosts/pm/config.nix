@@ -140,6 +140,16 @@
       maple-mono.NF-CN
       noto-fonts
     ];
+    fontconfig = {
+      defaultFonts = {
+        serif = [ "Noto Serif" ];
+        sansSerif = [ "Noto Sans" ];
+        monospace = [
+          "Maple Mono NF CN"
+          "Noto Sans Mono"
+        ];
+      };
+    };
   };
 
   # Allow unfree packages

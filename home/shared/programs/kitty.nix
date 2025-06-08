@@ -3,9 +3,9 @@
   programs.kitty = {
     enable = true;
     font = {
-      name = "Maple Mono NF Regular";
+      name = "Maple Mono NF CN Regular";
       size = 12;
-      package = pkgs.maple-mono.NF;
+      package = pkgs.maple-mono.NF-CN;
     };
     shellIntegration.enableFishIntegration = true;
     extraConfig = ''
