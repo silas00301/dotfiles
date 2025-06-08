@@ -16,7 +16,7 @@
     shellAbbrs = {
       rebuild = {
         position = "command";
-        expansion = "sudo darwin-rebuild switch --flake ~/dotfiles#wm";
+        expansion = "nh os switch -H wm";
       };
     };
   };
