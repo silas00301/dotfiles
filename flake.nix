@@ -20,6 +20,8 @@
     lanzaboote.url = "github:nix-community/lanzaboote/v0.4.1";
 
     zen-browser.url = "github:youwen5/zen-browser-flake";
+
+    zjstatus.url = "github:dj95/zjstatus";
   };
 
   outputs =
@@ -122,6 +124,13 @@
         }
       );
 
+      getOverlaysForSystem = (
+        system:
+        builtins.mapAttrs (folderName: _: import ./overlays/${folderName} (getInputsForSystem system)) (
+          builtins.readDir ./overlays
+        )
+      );
+
       getHomeForHost = (
         moduleName: system: host:
         let
@@ -140,6 +149,7 @@
                   ./home/systems/${systemFolder}/shared
                   ./home/systems/${systemFolder}/hosts/${host}
                   catppuccin.homeModules.catppuccin
+                  (getOverlaysForSystem system)
                 ];
               };
               extraSpecialArgs = {
