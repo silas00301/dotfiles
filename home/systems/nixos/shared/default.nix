@@ -17,6 +17,7 @@
 
   home.packages = [
     pkgs.discord
+    pkgs.vesktop
     selfPackages.spt-st
     zen-browser.packages.${pkgs.system}.default
   ];
