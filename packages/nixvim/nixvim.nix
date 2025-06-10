@@ -128,7 +128,7 @@
     {
       mode = "n";
       key = "<leader>f";
-      action= "<cmd>lua MiniFiles.open()<CR>";
+      action = "<cmd>lua MiniFiles.open()<CR>";
     }
   ];
 
