@@ -80,24 +80,39 @@
         system:
         let
           overlays = getOverlaysForSystem system;
+          systemFolder = systemToFolderName.${system};
         in
+        inputs
+        // getBaseInputs system
+        // {
+          pkgs = import nixpkgs {
+            inherit system;
+            inherit catppuccin;
+            overlays = overlays;
+            config.allowUnfree = true;
+          };
+          pkgs-stable =
+            if systemFolder == systemFolders.linux then
+              (import nixpkgs-stable-nixos {
+                system = system;
+                config.allowUnfree = true;
+              })
+            else
+              (import nixpkgs-stable-darwin {
+                system = system;
+                config.allowUnfree = true;
+              });
+        }
+      );
+
+      getBaseInputs = (
+        system:
         inputs
         // {
           inherit system;
           zjstatus = zjstatus;
           catppuccin = catppuccinConfig;
           self-path = builtins.path self;
-          pkgs = import nixpkgs {
-            inherit system;
-            inherit catppuccin;
-            inherit overlays;
-            config.allowUnfree = true;
-          };
-          pkgs-stable = import nixpkgs-stable-darwin {
-            inherit system;
-            inherit catppuccin;
-            config.allowUnfree = true;
-          };
         }
       );
 
@@ -133,15 +148,15 @@
       getOverlaysForSystem = (
         system:
         let
-          systemInputs = getInputsForSystem system;
+          systemInputs = getBaseInputs system;
         in
-        builtins.mapAttrs (folderName: _: {
-          nixpkgs.overlays = [ (import ./overlays/${folderName} systemInputs) ];
-        }) (builtins.readDir ./overlays)
+        builtins.map (folderName: ((import ./overlays/${folderName} systemInputs))) (
+          builtins.attrNames (builtins.readDir ./overlays)
+        )
       );
 
       getHomeForHost = (
-        moduleName: system: host:
+        moduleName: system: host: pkgs: pkgs-stable:
         let
           systemFolder = systemToFolderName.${system};
         in
@@ -162,21 +177,12 @@
               };
               extraSpecialArgs = {
                 inherit username;
+                inherit pkgs;
+                inherit pkgs-stable;
                 selfPackages = self.packages.${system};
                 catppuccin = catppuccinConfig;
                 configName = host;
                 zen-browser = zen-browser;
-                pkgs-stable =
-                  if systemFolder == "linux" then
-                    (import nixpkgs-stable-nixos {
-                      system = system;
-                      config.allowUnfree = true;
-                    })
-                  else
-                    (import nixpkgs-stable-darwin {
-                      system = system;
-                      config.allowUnfree = true;
-                    });
               };
             };
           }
@@ -187,6 +193,7 @@
         system:
         let
           selfPackages = self.packages.${system};
+          systemInputs = getInputsForSystem system;
         in
         builtins.mapAttrs (
           folderName: _:
@@ -200,13 +207,17 @@
               }
               lanzaboote.nixosModules.lanzaboote
               catppuccin.nixosModules.catppuccin
-            ] ++ (getHomeForHost "nixosModules" system folderName);
+            ] ++ (getHomeForHost "nixosModules" system folderName systemInputs.pkgs systemInputs.pkgs-stable);
           }
         ) (builtins.readDir ./hosts/nixos/hosts)
       );
 
       darwinConfigurations = (
         system:
+        let
+          selfPackages = self.packages.${system};
+          systemInputs = getInputsForSystem system;
+        in
         builtins.mapAttrs (
           folderName: _:
           nix-darwin.lib.darwinSystem {
@@ -219,10 +230,10 @@
               (getConfigurationModuleForSystemAndHost system folderName)
               {
                 _module.args = {
-                  selfPackages = self.packages.${system};
+                  inherit selfPackages;
                 };
               }
-            ] ++ (getHomeForHost "darwinModules" system folderName);
+            ] ++ (getHomeForHost "darwinModules" system folderName systemInputs.pkgs systemInputs.pkgs-stable);
           }
         ) (builtins.readDir ./hosts/darwin/hosts)
       );
