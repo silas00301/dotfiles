@@ -109,7 +109,7 @@ in
             color_base                  "#1e1e2e"
             color_mantle                "#181825"
             color_crust                 "#11111b"
-    
+
             format_left                 "{mode}#[bg=$surface0,fg=$blue] {session} #[fg=$surface0]"
             format_center               "{tabs}"
             format_right                "{pipe_current_cmd}{datetime}"
@@ -136,27 +136,27 @@ in
             mode_session                "#[bg=$sky,fg=$crust,bold] SESSION #[bg=$surface0,fg=$sky]" 
             mode_move                   "#[bg=$lavender,fg=$crust,bold] MOVE #[bg=$surface0,fg=$lavender]" 
             mode_prompt                 "#[bg=$text,fg=$crust,bold] PROMPT #[bg=$surface0,fg=$text]"  
-    
+
             tab_normal                  "#[fg=$surface0]#[fg=$text,bg=$surface0] {index} | {name} #[fg=$surface0]"
             tab_normal_fullscreen       "#[fg=$surface0]#[fg=$text,bg=$surface0] {index} | {name} {fullscreen_indicator} #[fg=$surface0]"
             tab_normal_sync             "#[fg=$surface0]#[fg=$text,bg=$surface0] {index} | {name} {sync_indicator} #[fg=$surface0]"
-    
+
             tab_active                  "#[fg=$blue,bold]#[fg=$crust,bg=$blue,bold] {index} | {name}  #[fg=$blue,bold]"
             tab_active_fullscreen       "#[fg=$blue,bold]#[fg=$crust,bg=$blue,bold] {index} | {name} {fullscreen_indicator} #[fg=$blue,bold]"
             tab_active_sync             "#[fg=$blue,bold]#[fg=$crust,bg=$blue,bold] {index} | {name} {sync_indicator} #[fg=$blue,bold]"
-    
+
             tab_rename                  "#[fg=$blue,bold]#[fg=$crust,bg=$blue,bold] {index} | {name} #[fg=$blue,bold]"
-    
+
             tab_sync_indicator          "↹"
             tab_fullscreen_indicator    "⇱"
             tab_floating_indicator      "⬚"
-    
+
             tab_display_count           "3"
-    
+
             datetime                    "#[bg=$surface0,fg=$blue]#[bg=$blue,fg=$crust,bold] {format} "
             datetime_format             "%H:%M"
             datetime_timezone           "Europe/Berlin"
-    
+
             pipe_current_cmd_format     "#[fg=$surface0]#[bg=$surface0,fg=$blue, bold] {output} "
             pipe_current_cmd_rendermode "static"
           }
