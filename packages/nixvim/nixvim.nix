@@ -29,6 +29,7 @@
     smartcase = true;
     smartindent = true;
     autoindent = true;
+    winborder = "rounded";
   };
 
   autoCmd = [
@@ -48,7 +49,7 @@
     {
       mode = "n";
       key = "<leader>sf";
-      action = "<cmd>Telescope git_files<CR>";
+      action = "<cmd>Telescope frecency<CR>";
     }
     {
       mode = "n";
@@ -67,7 +68,7 @@
     }
     {
       mode = "n";
-      key = "<leader>n";
+      key = "<leader>t";
       action = "<cmd>Noice telescope<CR>";
     }
     {
@@ -128,7 +129,12 @@
     {
       mode = "n";
       key = "<leader>f";
-      action = "<cmd>lua MiniFiles.open()<CR>";
+      action = "<cmd>lua MiniFiles.open(vim.api.nvim_buf_get_name(0))<CR>";
+    }
+    {
+      mode = "i";
+      key = "<C-Space>";
+      action.__raw = "cmp.mapping.complete()";
     }
   ];
 
@@ -198,10 +204,29 @@
     };
 
     rainbow-delimiters.enable = true;
-    telescope.enable = true;
+    telescope = {
+      enable = true;
+      extensions.frecency = {
+        enable = true;
+        settings = {
+          ignore_patterns = [
+            "*.git/*"
+            "*.jj/*"
+            "*/tmp/*"
+          ];
+          default_workspace = "CWD";
+          matcher = "fuzzy";
+        };
+      };
+    };
     which-key.enable = true;
-    dressing.enable = true;
     web-devicons.enable = true;
+    snacks = {
+      enable = true;
+      settings = {
+        input.enabled = true;
+      };
+    };
     yazi.enable = true;
     neocord.enable = true;
     lsp-format = {
@@ -326,6 +351,8 @@
         indent.enable = true;
         incremental_selection.enable = true;
       };
+      nixvimInjections = true;
+      nixGrammars = true;
     };
     treesitter-context.enable = true;
     treesitter-textobjects = {
@@ -400,20 +427,69 @@
 
     zig.enable = true;
 
+    nui.enable = true;
+
     noice = {
       enable = true;
       settings = {
-        cmdline.enabled = true;
         messages.enabled = true;
         notify.enabled = true;
+        lsp.override = {
+          "cmp.entry.get_documentation" = true;
+          "vim.lsp.util_convert_input_to_markdown_lines" = true;
+          "vim.lsp.util.stylize_markdown" = true;
+        };
         popupmenu = {
           enabled = true;
           backend = "cmp";
         };
-        lsp.override = {
-          "cmp.entry.get_documentation" = true;
-          "vim.lsp.util.convert_input_to_markdown_lines" = true;
-          "vim.lsp.util.stylize_markdown" = true;
+        presets = {
+          bottom_search = true;
+          lsp_doc_border = true;
+        };
+        views = {
+          cmdline_popup = {
+            position = {
+              row = "40%";
+              col = "50%";
+            };
+            size = {
+              width = 60;
+              height = "auto";
+            };
+            win_options = {
+              winhighlight = {
+                Normal = "NoicePopup";
+                FloatBorder = "NoicePopupBorder";
+                FloatTitle = "DiagnosticInfo";
+              };
+            };
+          };
+          popupmenu = {
+            relative = "editor";
+            position = {
+              row = "55%";
+              col = "50%";
+            };
+            size = {
+              width = 60;
+              height = "auto";
+            };
+            border = {
+              style = "rounded";
+              padding = [
+                0
+                1
+              ];
+            };
+            win_options = {
+              winblend = 0;
+              winhighlight = {
+                Normal = "Normal";
+                FloatBorder = "DiagnosticInfo";
+              };
+            };
+          };
         };
       };
     };
@@ -465,53 +541,91 @@
             end,
           '';
         };
-      };
-      settings.mapping = {
-        "<CR>" = ''
-          cmp.mapping({
-            i = function(fallback)
-              if cmp.visible() then
-                if not cmp.get_active_entry() then
-                  cmp.select_next_item({ behavior = cmp.SelectBehavior.Select })
+        mapping = {
+          "<CR>" = ''
+            cmp.mapping({
+              i = function(fallback)
+                if cmp.visible() then
+                  cmp.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = false })
+                else
+                  fallback()
                 end
-                cmp.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = false })
-              else
-                fallback()
-              end
-            end,
-            s = cmp.mapping.confirm({ 
-              select = true 
-            }),
-            c = cmp.mapping.confirm({ 
-              behavior = cmp.ConfirmBehavior.Replace, 
-              select = true 
+              end,
+              s = cmp.mapping.confirm({ 
+                select = true 
+              }),
+              c = cmp.mapping.confirm({ 
+                behavior = cmp.ConfirmBehavior.Replace, 
+                select = true 
+              })
             })
-          })
-        '';
-        "<Tab>" = ''
-          cmp.mapping(
-            function(fallback)
-              if cmp.visible() then
-                cmp.select_next_item({ behavior = cmp.SelectBehavior.Select })
-              else
-                fallback()
-              end
-            end,
-            { "i", "s", "c" }
-          )
-        '';
-        "<S-Tab>" = ''
-          cmp.mapping(
-            function(fallback)
-              if cmp.visible() then
-                cmp.select_prev_item({ behavior = cmp.SelectBehavior.Select })
-              else
-                fallback()
-              end
-            end,
-            { "i", "s", "c" }
-          )
-        '';
+          '';
+          "<Tab>" = ''
+            cmp.mapping(
+              function(fallback)
+                if cmp.visible() then
+                  cmp.select_next_item({ behavior = cmp.SelectBehavior.Select })
+                else
+                  fallback()
+                end
+              end,
+              { "i", "s", "c" }
+            )
+          '';
+          "<S-Tab>" = ''
+            cmp.mapping(
+              function(fallback)
+                if cmp.visible() then
+                  cmp.select_prev_item({ behavior = cmp.SelectBehavior.Select })
+                else
+                  fallback()
+                end
+              end,
+              { "i", "s", "c" }
+            )
+          '';
+        };
+      };
+      cmdline = {
+        "/" = {
+          mapping = {
+            __raw = "cmp.mapping.preset.cmdline()";
+          };
+          sources = [
+            {
+              name = "buffer";
+            }
+          ];
+        };
+        "?" = {
+          mapping = {
+            __raw = "cmp.mapping.preset.cmdline()";
+          };
+          sources = [
+            {
+              name = "buffer";
+            }
+          ];
+        };
+        ":" = {
+          mapping = {
+            __raw = "cmp.mapping.preset.cmdline()";
+          };
+          sources = [
+            {
+              name = "path";
+            }
+            {
+              name = "cmdline";
+              option = {
+                ignore_cmds = [
+                  "Man"
+                  "!"
+                ];
+              };
+            }
+          ];
+        };
       };
     };
     cmp-path.enable = true;
