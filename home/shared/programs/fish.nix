@@ -24,7 +24,7 @@
     interactiveShellInit = ''
       set -g fish_key_bindings fish_vi_key_bindings
 
-      for script in ~/scripts/*.fish; do:
+      for script in ~/scripts/*.fish
         source $script
       end
 
