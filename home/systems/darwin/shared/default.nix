@@ -16,7 +16,7 @@
     shellAbbrs = {
       rebuild = {
         position = "command";
-        expansion = "nh os switch -H wm";
+        expansion = "nh darwin switch -H wm";
       };
     };
   };
