@@ -19,7 +19,6 @@
     # pkgs.dogdns
     pkgs.glow
     pkgs.obsidian
-    pkgs.spotify
     pkgs.insomnia
     pkgs.zig
   ];

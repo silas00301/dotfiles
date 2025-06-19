@@ -22,6 +22,8 @@
     zen-browser.url = "github:youwen5/zen-browser-flake";
 
     zjstatus.url = "github:dj95/zjstatus";
+
+    spicetify-nix.url = "github:Gerg-L/spicetify-nix";
   };
 
   outputs =
@@ -36,6 +38,7 @@
       lanzaboote,
       zen-browser,
       zjstatus,
+      spicetify-nix,
       ...
     }@inputs:
     let
@@ -173,12 +176,14 @@
                   ./home/systems/${systemFolder}/shared
                   ./home/systems/${systemFolder}/hosts/${host}
                   catppuccin.homeModules.catppuccin
+                  spicetify-nix.homeManagerModules.default
                 ];
               };
               extraSpecialArgs = {
                 inherit username;
                 inherit pkgs;
                 inherit pkgs-stable;
+                inherit spicetify-nix;
                 selfPackages = self.packages.${system};
                 catppuccin = catppuccinConfig;
                 configName = host;

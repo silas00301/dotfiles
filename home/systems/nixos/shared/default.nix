@@ -9,6 +9,7 @@
     ../../../shared/programs/ghostty.nix
     ../../../shared/programs/hypr.nix
     ../../../shared/programs/rofi.nix
+    ../../../shared/programs/spicetify
     ../../../shared/programs/spotify-player.nix
     ../../../shared/programs/waybar.nix
 
