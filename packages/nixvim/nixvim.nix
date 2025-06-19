@@ -407,6 +407,7 @@
           enable = true;
           settings.telemetry.enable = false;
         };
+        qmlls.enable = true;
         nixd.enable = true;
         ts_ls.enable = true;
         vuels = {
