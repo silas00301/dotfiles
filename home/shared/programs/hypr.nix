@@ -29,6 +29,7 @@ in
         "ALT, SPACE, exec, killall rofi || rofi -show drun"
         "$mod, SPACE, togglefloating"
         "$mod, F, fullscreen, 1"
+        "$mod SHIFT, F, fullscreen, 0"
         "SUPER ALT CTRL SHIFT, Q, exec, hyprctl dispatch exit"
 
         "$mod, 1, workspace, 1"
