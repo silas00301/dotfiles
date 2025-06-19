@@ -164,11 +164,22 @@
       nerd-fonts.geist-mono
       maple-mono.NF-CN
       noto-fonts
+      noto-fonts-cjk-sans
+      noto-fonts-cjk-serif
+      noto-fonts-color-emoji
+      noto-fonts-monochrome-emoji
+      noto-fonts-emoji-blob-bin
     ];
     fontconfig = {
       defaultFonts = {
-        serif = [ "Noto Serif" ];
-        sansSerif = [ "Noto Sans" ];
+        serif = [
+          "Noto Serif"
+          "Noto Serif CJK JP"
+        ];
+        sansSerif = [
+          "Noto Sans"
+          "Noto Sans CJK JP"
+        ];
         monospace = [
           "Maple Mono NF CN"
           "Noto Sans Mono"
