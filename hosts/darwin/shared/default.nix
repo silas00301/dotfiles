@@ -38,6 +38,11 @@
     };
   };
 
+  nix = {
+    enable = true;
+    package = pkgs.nix;
+  };
+
   system = {
     defaults = {
       WindowManager = {
