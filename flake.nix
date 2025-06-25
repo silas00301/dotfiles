@@ -85,8 +85,7 @@
           overlays = getOverlaysForSystem system;
           systemFolder = systemToFolderName.${system};
         in
-        inputs
-        // getBaseInputs system
+        getBaseInputs system
         // {
           pkgs = import nixpkgs {
             inherit system;
@@ -112,7 +111,7 @@
         system:
         inputs
         // {
-          inherit system;
+          currentSystem = system;
           zjstatus = zjstatus;
           catppuccin = catppuccinConfig;
           self-path = builtins.path self;

@@ -1,11 +1,11 @@
 {
   pkgs-stable,
-  system,
+  currentSystem,
   nixvim,
   catppuccin,
   ...
 }:
-nixvim.legacyPackages.${system}.makeNixvimWithModule {
+nixvim.legacyPackages.${currentSystem}.makeNixvimWithModule {
   module = import ./nixvim.nix;
   extraSpecialArgs = {
     pkgs-stable = pkgs-stable;
