@@ -37,10 +37,10 @@
         alt-cmd-2 = "workspace 6";
         alt-cmd-3 = "workspace 7";
         alt-cmd-4 = "workspace 8";
-        ctrl-alt-cmd-1 = "workspace 9";
-        ctrl-alt-cmd-2 = "workspace 10";
-        ctrl-alt-cmd-3 = "workspace 11";
-        ctrl-alt-cmd-4 = "workspace 12";
+        ctrl-cmd-1 = "workspace 9";
+        ctrl-cmd-2 = "workspace 10";
+        ctrl-cmd-3 = "workspace 11";
+        ctrl-cmd-4 = "workspace 12";
 
         # Workspace Window Moving
         alt-shift-1 = [
@@ -75,19 +75,19 @@
           "move-node-to-workspace 8"
           "workspace 8"
         ];
-        ctrl-alt-cmd-shift-1 = [
+        ctrl-cmd-shift-1 = [
           "move-node-to-workspace 9"
           "workspace 9"
         ];
-        ctrl-alt-cmd-shift-2 = [
+        ctrl-cmd-shift-2 = [
           "move-node-to-workspace 10"
           "workspace 10"
         ];
-        ctrl-alt-cmd-shift-3 = [
+        ctrl-cmd-shift-3 = [
           "move-node-to-workspace 11"
           "workspace 11"
         ];
-        ctrl-alt-cmd-shift-4 = [
+        ctrl-cmd-shift-4 = [
           "move-node-to-workspace 12"
           "workspace 12"
         ];
