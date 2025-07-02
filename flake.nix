@@ -24,8 +24,6 @@
     zjstatus.url = "github:dj95/zjstatus";
 
     spicetify-nix.url = "github:Gerg-L/spicetify-nix";
-
-    wallpkgs.url = "github:NotAShelf/wallpkgs";
   };
 
   outputs =
