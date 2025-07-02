@@ -37,10 +37,10 @@
         alt-cmd-2 = "workspace 6";
         alt-cmd-3 = "workspace 7";
         alt-cmd-4 = "workspace 8";
-        ctrl-cmd-1 = "workspace 9";
-        ctrl-cmd-2 = "workspace 10";
-        ctrl-cmd-3 = "workspace 11";
-        ctrl-cmd-4 = "workspace 12";
+        ctrl-alt-1 = "workspace 9";
+        ctrl-alt-2 = "workspace 10";
+        ctrl-alt-3 = "workspace 11";
+        ctrl-alt-4 = "workspace 12";
 
         # Workspace Window Moving
         alt-shift-1 = [
