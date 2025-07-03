@@ -75,19 +75,19 @@
           "move-node-to-workspace 8"
           "workspace 8"
         ];
-        ctrl-cmd-shift-1 = [
+        ctrl-alt-shift-1 = [
           "move-node-to-workspace 9"
           "workspace 9"
         ];
-        ctrl-cmd-shift-2 = [
+        ctrl-alt-shift-2 = [
           "move-node-to-workspace 10"
           "workspace 10"
         ];
-        ctrl-cmd-shift-3 = [
+        ctrl-alt-shift-3 = [
           "move-node-to-workspace 11"
           "workspace 11"
         ];
-        ctrl-cmd-shift-4 = [
+        ctrl-alt-shift-4 = [
           "move-node-to-workspace 12"
           "workspace 12"
         ];
