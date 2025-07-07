@@ -14,6 +14,7 @@
       };
       aliases = {
         tug = ["bookmark" "move" "--from" "heads(::@ & bookmarks())" "--to" "@"];
+        insert = ["new" "--insert-before" "@"];
       };
     };
   };

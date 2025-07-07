@@ -11,6 +11,7 @@
       ls = "eza -la --git";
       l1 = "eza -1 --icons=never";
       zf = "zellij run -f --";
+      jjn = "jj --no-pager";
     };
     shellAbbrs = {
       "!!" = {
