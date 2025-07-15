@@ -1,0 +1,51 @@
+[[on-window-detected]]
+if.app-id = "com.jetbrains.intellij"
+check-further-callbacks = false
+run = ["move-node-to-workspace 1"]
+
+[[on-window-detected]]
+if.app-id = "com.jetbrains.rider"
+check-further-callbacks = false
+run = ["move-node-to-workspace 1"]
+
+[[on-window-detected]]
+if.app-id = "com.jetbrains.WebStorm"
+check-further-callbacks = false
+run = ["move-node-to-workspace 2"]
+
+[[on-window-detected]]
+if.app-id = "com.mitchellh.ghostty"
+check-further-callbacks = false
+run = ["move-node-to-workspace 3"]
+
+[[on-window-detected]]
+if.app-id = "com.microsoft.teams2"
+if.app-name-regex-substring = "^(Activity|Settings|Chat | .*|Teams and Channels | .*|Calendar|Calls|Copilot|OneDrive)?( \| )?Microsoft Teams$"
+check-further-callbacks = false
+run = ["move-node-to-workspace 5"]
+
+[[on-window-detected]]
+if.app-id = "com.microsoft.Outlook"
+check-further-callbacks = false
+run = ["move-node-to-workspace 6"]
+
+[[on-window-detected]]
+if.app-id = "com.spotify.client"
+check-further-callbacks = false
+run = ["move-node-to-workspace 7"]
+
+[[on-window-detected]]
+if.app-id = "Mattermost.Desktop"
+check-further-callbacks = false
+run = ["move-node-to-workspace 8"]
+
+[[on-window-detected]]
+if.app-id = "com.microsoft.teams2"
+check-further-callbacks = true
+run = ["move-node-to-workspace 9"]
+
+[[on-window-detected]]
+if.app-id = "app.zen-browser.zen"
+check-further-callbacks = false
+run = ["move-node-to-workspace 10"]
+

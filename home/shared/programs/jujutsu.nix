@@ -8,7 +8,11 @@
       };
       ui = {
         default-command = "log";
-        diff-editor = ["nvim" "-c" "DiffEditor $left $right $output"];
+        diff-editor = [
+          "nvim"
+          "-c"
+          "DiffEditor $left $right $output"
+        ];
       };
       signing = {
         behavior = "own";
@@ -16,8 +20,19 @@
         key = "~/.ssh/id_rsa_private.pub";
       };
       aliases = {
-        tug = ["bookmark" "move" "--from" "heads(::@ & bookmarks())" "--to" "@"];
-        insert = ["new" "--insert-before" "@"];
+        tug = [
+          "bookmark"
+          "move"
+          "--from"
+          "heads(::@ & bookmarks())"
+          "--to"
+          "@"
+        ];
+        insert = [
+          "new"
+          "--insert-before"
+          "@"
+        ];
       };
       git.private-commits = "description(glob:'private:*')";
     };

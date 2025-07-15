@@ -204,7 +204,7 @@
     };
 
     rainbow-delimiters.enable = true;
-    
+
     hunk.enable = true;
 
     telescope = {
