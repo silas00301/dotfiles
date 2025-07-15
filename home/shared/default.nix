@@ -9,6 +9,7 @@
     # pkgs.bitwarden-cli
     pkgs.rustup
     pkgs.bat
+    pkgs.vue-language-server
     pkgs.bat-extras.prettybat
     pkgs.bat-extras.batwatch
     pkgs.bat-extras.batman
