@@ -18,7 +18,6 @@ jobs:
       - uses: DeterminateSystems/determinate-nix-action@v3
       - uses: DeterminateSystems/update-flake-lock@v27
         with:
-          token: ${{ secrets.NIX_FLAKE_UPDATE_PAT }}
           pr-title: "Update Nix flake inputs"
           pr-labels: |
             dependencies
