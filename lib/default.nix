@@ -155,7 +155,8 @@ in
           }
           lanzaboote.nixosModules.lanzaboote
           catppuccin.nixosModules.catppuccin
-        ] ++ (getHomeForHost "nixosModules" system folderName systemInputs.pkgs systemInputs.pkgs-stable);
+        ]
+        ++ (getHomeForHost "nixosModules" system folderName systemInputs.pkgs systemInputs.pkgs-stable);
       }
     ) (builtins.readDir ../hosts/nixos/hosts)
   );
@@ -178,7 +179,8 @@ in
           {
             _module.args = getBaseInputs system;
           }
-        ] ++ (getHomeForHost "darwinModules" system folderName systemInputs.pkgs systemInputs.pkgs-stable);
+        ]
+        ++ (getHomeForHost "darwinModules" system folderName systemInputs.pkgs systemInputs.pkgs-stable);
       }
     ) (builtins.readDir ../hosts/darwin/hosts)
   );
