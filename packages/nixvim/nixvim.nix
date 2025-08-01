@@ -71,6 +71,11 @@
       key = "<leader>t";
       action = "<cmd>Noice telescope<CR>";
     }
+    { 
+      mode = "n";
+      key = "<leader>d";
+      action = "<cmd>silent exec '!zellij run -i -c -n GitHub -- gh dash'<CR>";
+    }
     {
       mode = "n";
       key = "<leader>ha";

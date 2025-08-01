@@ -57,9 +57,7 @@
     };
   };
   home.packages = [
-    (pkgs.writeShellScriptBin
-    "jj-flip"
-    ''
+    (pkgs.writeShellScriptBin "jj-flip" ''
       #!${pkgs.zsh}/bin/zsh
       ${pkgs.jujutsu}/bin/jj bookmark create current --revision @
       ${pkgs.jujutsu}/bin/jj bookmark create previous --revision @-
