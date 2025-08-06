@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, lib, config, ... }:
 {
   programs.jujutsu = {
     enable = true;
@@ -9,6 +9,7 @@
       };
       ui = {
         default-command = "log";
+        pager = lib.mkIf config.programs.bat.enable "bat -p";
         diff-editor = [
           "nvim"
           "-c"
