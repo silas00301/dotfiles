@@ -4,6 +4,8 @@
   home.homeDirectory = lib.mkForce "/Users/${inputs.username}";
 
   imports = [
+    programs/bitwarden.nix
+
     ../../../shared/programs/aerospace.nix
     ../../../shared/services/janky-borders.nix
   ];

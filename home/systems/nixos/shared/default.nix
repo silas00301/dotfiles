@@ -5,6 +5,8 @@
 }:
 {
   imports = [
+    programs/bitwarden.nix
+
     ../../../shared/programs/ghostty.nix
     ../../../shared/programs/hypr.nix
     ../../../shared/programs/rofi.nix

@@ -1,6 +1,6 @@
-{ config, pkgs, ... }:
+{ config, ... }:
 let
-  wallpaper = pkgs.catppuccinWalls."catppuccin-cabin-2".path;
+  wallpaper = "/etc/wallpaper/wallpaper.jpg";
 in
 {
   wayland.windowManager.hyprland = {
