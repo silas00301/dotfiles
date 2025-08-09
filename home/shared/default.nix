@@ -9,12 +9,7 @@
     pkgs.rustup
     pkgs.bat
     pkgs.vue-language-server
-    pkgs.bat-extras.prettybat
-    pkgs.bat-extras.batwatch
     pkgs.bat-extras.batman
-    pkgs.bat-extras.batgrep
-    pkgs.bat-extras.batpipe
-    pkgs.bat-extras.batdiff
     pkgs.lazydocker
     # pkgs.dogdns
     pkgs.glow
