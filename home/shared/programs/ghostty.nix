@@ -9,6 +9,9 @@
       font-family = "Maple Mono NF CN";
       background-blur = true;
       confirm-close-surface = false;
+      keybind = [
+        "global:cmd+grave_accent=toggle_quick_terminal"
+      ]
     };
   };
 }
