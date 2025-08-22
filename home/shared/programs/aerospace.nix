@@ -25,8 +25,8 @@
         ctrl-shift-l = "move right";
 
         # Window Resizing
-        cmd-s = "resize width -50";
-        cmd-l = "resize smart +50";
+        cmd-shift-s = "resize width -50";
+        cmd-shift-l = "resize smart +50";
 
         # Workspace Switching
         alt-1 = "workspace 1";
