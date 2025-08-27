@@ -1,6 +1,5 @@
 {
   pkgs,
-  zen-browser,
   selfPackages,
   ...
 }:
@@ -20,7 +19,6 @@
     pkgs.discord
     pkgs.vesktop
     selfPackages.spt-st
-    zen-browser.packages.${pkgs.system}.default
   ];
 
   gtk.enable = true;

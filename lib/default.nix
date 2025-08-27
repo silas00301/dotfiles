@@ -10,6 +10,7 @@
   spicetify-nix,
   username,
   catppuccinConfig,
+  zen-browser,
   ...
 }@inputs:
 let
@@ -126,6 +127,7 @@ let
               ../home/systems/${systemFolder}/hosts/${host}
               catppuccin.homeModules.catppuccin
               spicetify-nix.homeManagerModules.default
+              zen-browser.homeModules.beta
             ];
           };
           extraSpecialArgs = getInputsForSystem system // {
