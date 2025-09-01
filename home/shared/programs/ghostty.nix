@@ -11,7 +11,7 @@
       confirm-close-surface = false;
       keybind = [
         "global:cmd+grave_accent=toggle_quick_terminal"
-      ]
+      ];
     };
   };
 }
