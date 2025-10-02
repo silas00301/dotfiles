@@ -418,10 +418,6 @@
         qmlls.enable = true;
         nixd.enable = true;
         ts_ls.enable = true;
-        vuels = {
-          enable = true;
-          package = pkgs.vue-language-server;
-        };
         jsonls.enable = true;
         gopls.enable = true;
         yamlls.enable = true;
