@@ -1,13 +1,11 @@
 {
   programs.git = {
     enable = true;
-    userName = "Silas";
-    userEmail = "contact@silash.dev";
-    signing = {
-      key = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIPViOU8+CC3RPIs8PAZyHaJYr+oXXNBPw2kAT/zeE9SJ";
-      signByDefault = true;
-    };
-    extraConfig = {
+    settings = {
+      user = {
+        name = "Silas";
+        email = "contact@silash.dev";
+      };
       gpg = {
         format = "ssh";
       };
@@ -49,9 +47,9 @@
       column.ui = "auto";
       help.autocorrect = "prompt";
       init.defaultBranch = "main";
-    };
-    aliases = {
-      co = "checkout";
+      aliases = {
+        co = "checkout";
+      };
     };
     includes = [
       {
@@ -59,5 +57,9 @@
         path = "~/Developer/work/.gitconfig";
       }
     ];
+    signing = {
+      key = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIPViOU8+CC3RPIs8PAZyHaJYr+oXXNBPw2kAT/zeE9SJ";
+      signByDefault = true;
+    };
   };
 }
