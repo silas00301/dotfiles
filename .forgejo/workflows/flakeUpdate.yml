@@ -12,7 +12,7 @@ jobs:
       id-token: write
       issues: write
       pull-requests: write
-    runs-on: ubuntu-latest
+    runs-on: codeberg-tiny-lazy
     steps:
       - uses: actions/checkout@v4
       - uses: DeterminateSystems/determinate-nix-action@v3
