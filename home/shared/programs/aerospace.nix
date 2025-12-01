@@ -1,8 +1,8 @@
 {
   programs.aerospace = {
     enable = true;
-    userSettings = {
-      start-at-login = true;
+    launchd.enable = true;
+    settings = {
       gaps = {
         outer.left = 7;
         outer.bottom = 7;
