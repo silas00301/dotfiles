@@ -1,3 +1,3 @@
 {
-  programs.aerospace.userSettings = builtins.fromTOML (builtins.readFile ./aerospace.toml);
+  programs.aerospace.settings = builtins.fromTOML (builtins.readFile ./aerospace.toml);
 }

@@ -13,7 +13,6 @@
   programs.fish = {
     shellInit = ''
       eval "$(/opt/homebrew/bin/brew shellenv)" 
-      export PATH="$PATH:${config.home.homeDirectory}/Library/Application Support/JetBrains/Toolbox/scripts"
     '';
     shellAbbrs = {
       rebuild = {

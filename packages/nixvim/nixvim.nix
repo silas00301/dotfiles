@@ -365,28 +365,30 @@
     treesitter-context.enable = true;
     treesitter-textobjects = {
       enable = true;
-      lspInterop = {
-        enable = true;
-        border = "rounded";
-      };
-      select = {
-        enable = true;
-        lookahead = true;
-        keymaps = {
-          "if" = "@function.inner";
-          "af" = "@function.outer";
-          "ic" = "@class.inner";
-          "ac" = "@class.outer";
-          "i=" = "@assignment.inner";
-          "a=" = "@assignment.outer";
-          "v=" = "@assignment.rhs";
-          "n=" = "@assignment.lhs";
-          "il" = "@loop.inner";
-          "al" = "@loop.outer";
-          "ii" = "@conditional.inner";
-          "ai" = "@conditional.outer";
-          "i#" = "@comment.inner";
-          "a#" = "@comment.outer";
+      settings = {
+        lsp-interop = {
+          enable = true;
+          border = "rounded";
+        };
+        select = {
+          enable = true;
+          lookahead = true;
+          keymaps = {
+            "if" = "@function.inner";
+            "af" = "@function.outer";
+            "ic" = "@class.inner";
+            "ac" = "@class.outer";
+            "i=" = "@assignment.inner";
+            "a=" = "@assignment.outer";
+            "v=" = "@assignment.rhs";
+            "n=" = "@assignment.lhs";
+            "il" = "@loop.inner";
+            "al" = "@loop.outer";
+            "ii" = "@conditional.inner";
+            "ai" = "@conditional.outer";
+            "i#" = "@comment.inner";
+            "a#" = "@comment.outer";
+          };
         };
       };
     };
