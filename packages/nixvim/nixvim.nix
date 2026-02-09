@@ -428,7 +428,6 @@
           installRustc = false;
           installCargo = false;
         };
-        zls.enable = true;
       };
     };
 
