@@ -5,6 +5,7 @@
     enableFishIntegration = true;
     enableZshIntegration = true;
     enableNushellIntegration = true;
+    shellWrapperName = "y";
     plugins = with pkgs; {
       git = yaziPlugins.git;
       glow = yaziPlugins.glow;
