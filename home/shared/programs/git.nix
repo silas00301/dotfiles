@@ -60,6 +60,7 @@
     signing = {
       key = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIPViOU8+CC3RPIs8PAZyHaJYr+oXXNBPw2kAT/zeE9SJ";
       signByDefault = true;
+      format = "openpgp";
     };
   };
 }
