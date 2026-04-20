@@ -48,11 +48,12 @@
     # ./programs/nushell.nix
     ./programs/nixvim.nix
     ./programs/ripgrep.nix
+    ./programs/sesh.nix
     ./programs/starship.nix
-    # ./programs/tmux.nix
+    ./programs/tmux.nix
     ./programs/yazi.nix
     ./programs/zoxide.nix
-    ./programs/zellij.nix
+    # ./programs/zellij.nix
     ./programs/zen-browser.nix
     ./programs/zsh.nix
   ];

@@ -18,10 +18,6 @@
     "pgadmin4"
   ];
 
-  environment.interactiveShellInit = ''
-    $PATH=/etc/profiles/per-user/${config.username}/bin:$PATH
-  '';
-
   security.pam.services.sudo_local.touchIdAuth = true;
 
   system.primaryUser = config.username;

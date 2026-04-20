@@ -29,14 +29,9 @@
         source $script
       end
 
-      zellij pipe "zjstatus::pipe::pipe_current_cmd::fish"
+      if not set -q TMUX
+        sesh connect $(sesh list | fzf)
+      end
     '';
   };
-  # home.file."scripts/zjcmd.fish".text = ''
-  #   function zjcmd --on-event fish_preexec
-  #     if set -q ZELLIJ_PANE_ID
-  #       zellij pipe "zjstatus::pipe::pipe_current_cmd::$(string split --max 1 " " $argv[1] | head -n 1)"
-  #     end
-  #   end
-  # '';
 }
