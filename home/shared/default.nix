@@ -9,7 +9,7 @@
     pkgs.rustup
     pkgs.bat
     pkgs.vue-language-server
-    pkgs.bat-extras.batman
+    # pkgs.bat-extras.batman
     pkgs.lazydocker
     # pkgs.dogdns
     pkgs.glow
@@ -45,7 +45,7 @@
     # ./programs/kitty.nix
     ./programs/lazygit.nix
     ./programs/nh.nix
-    ./programs/nushell.nix
+    # ./programs/nushell.nix
     ./programs/nixvim.nix
     ./programs/ripgrep.nix
     ./programs/starship.nix
