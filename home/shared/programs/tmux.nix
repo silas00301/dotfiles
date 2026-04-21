@@ -6,6 +6,7 @@
     prefix = "C-s";
     clock24 = true;
     escapeTime = 0;
+    baseIndex = 1;
     mouse = true;
     terminal = "xterm-ghostty";
     plugins = with pkgs; [
@@ -14,10 +15,14 @@
     shell = "${pkgs.fish}/bin/fish";
     extraConfig = ''
       set-option -g status-position top
+      set-option -g renumber-windows on
+      set-option -g status-right-length 80
+
       bind-key r source-file ~/.config/tmux/tmux.conf \; display-message "~/.config/tmux/tmux.conf reloaded"
       bind-key < split-window -h
       bind-key > split-window
       bind-key q kill-pane
+      bind-key y copy-mode
 
       vim_pattern='(\S+/)?g?\.?(view|l?n?vim?x?|fzf)(diff)?(-wrapped)?'
       is_vim="ps -o state= -o comm= -t '#{pane_tty}' \
