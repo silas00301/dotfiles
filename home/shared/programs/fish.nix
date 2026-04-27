@@ -30,7 +30,7 @@
       end
 
       if not set -q TMUX
-        sesh connect $(sesh list | fzf)
+        tv sesh
       end
     '';
   };

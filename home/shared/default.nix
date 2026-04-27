@@ -50,6 +50,7 @@
     ./programs/ripgrep.nix
     ./programs/sesh.nix
     ./programs/starship.nix
+    ./programs/television.nix
     ./programs/tmux.nix
     ./programs/yazi.nix
     ./programs/zoxide.nix
