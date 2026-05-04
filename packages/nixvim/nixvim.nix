@@ -508,7 +508,6 @@
           { name = "nvim_lsp"; }
           { name = "path"; }
           { name = "buffer"; }
-          { name = "calc"; }
           { name = "conventionalcommits"; }
           { name = "cmdline"; }
           { name = "luasnip"; }
@@ -636,7 +635,6 @@
     };
     cmp-path.enable = true;
     cmp-treesitter.enable = true;
-    cmp-calc.enable = true;
     cmp-conventionalcommits.enable = true;
     cmp-git.enable = true;
     cmp-clippy.enable = true;
