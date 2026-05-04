@@ -18,6 +18,8 @@
     pkgs.zig
     pkgs.nixd
     pkgs.nil
+    pkgs.vscode
+    pkgs.drawio
   ];
 
   imports = [
