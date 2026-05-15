@@ -15,7 +15,6 @@
     "raycast"
     "elgato-stream-deck"
     "ghostty"
-    "pgadmin4"
   ];
 
   security.pam.services.sudo_local.touchIdAuth = true;
