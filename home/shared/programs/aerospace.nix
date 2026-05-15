@@ -13,16 +13,16 @@
       };
       mode.main.binding = {
         # Window Navigation
-        ctrl-h = "focus left";
-        ctrl-j = "focus down";
-        ctrl-k = "focus up";
-        ctrl-l = "focus right";
+        ctrl-alt-h = "focus left";
+        ctrl-alt-j = "focus down";
+        ctrl-alt-k = "focus up";
+        ctrl-alt-l = "focus right";
 
         # Window Moving
-        ctrl-shift-h = "move left";
-        ctrl-shift-j = "move down";
-        ctrl-shift-k = "move up";
-        ctrl-shift-l = "move right";
+        ctrl-alt-shift-h = "move left";
+        ctrl-alt-shift-j = "move down";
+        ctrl-alt-shift-k = "move up";
+        ctrl-alt-shift-l = "move right";
 
         # Window Resizing
         cmd-shift-s = "resize width -50";
