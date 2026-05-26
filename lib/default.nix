@@ -46,6 +46,7 @@ let
         inherit catppuccin;
         overlays = overlays;
         config.allowUnfree = true;
+        config.permittedInsecurePackages = ["electron-39.8.10"];
       };
       pkgs-stable =
         if systemFolder == systemFolders.linux then

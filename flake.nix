@@ -3,10 +3,11 @@
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
-    nixpkgs-stable-darwin.url = "github:NixOS/nixpkgs/nixpkgs-25.05-darwin";
-    nixpkgs-stable-nixos.url = "github:NixOS/nixpkgs/nixos-25.05";
+    nixpkgs-stable-darwin.url = "github:NixOS/nixpkgs/nixpkgs-26.05-darwin";
+    nixpkgs-stable-nixos.url = "github:NixOS/nixpkgs/nixos-26.05";
 
     catppuccin.url = "github:catppuccin/nix";
+    catppuccin.inputs.nixpkgs.follows = "nixpkgs";
 
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
@@ -20,6 +21,7 @@
     lanzaboote.url = "github:nix-community/lanzaboote/v0.4.1";
 
     zen-browser.url = "github:0xc000022070/zen-browser-flake";
+    zen-browser.inputs.nixpkgs.follows = "nixpkgs";
 
     zjstatus.url = "github:dj95/zjstatus";
 
@@ -35,6 +37,7 @@
         enable = true;
         flavor = "mocha";
         accent = "lavender";
+        autoEnable = true;
       };
 
       lib = import ./lib (
