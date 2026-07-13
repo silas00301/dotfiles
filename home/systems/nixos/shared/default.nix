@@ -1,13 +1,11 @@
 {
   pkgs,
-  selfPackages,
   ...
 }:
 {
   imports = [
-    programs/bitwarden.nix
+    ../shared/programs/1password.nix
 
-    ../../../shared/programs/bitwarden.nix
     ../../../shared/programs/ghostty.nix
     ../../../shared/programs/hypr.nix
     ../../../shared/programs/spicetify

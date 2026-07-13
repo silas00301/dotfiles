@@ -169,6 +169,7 @@
     ];
   };
 
+
   fonts = {
     packages = with pkgs; [
       nerd-fonts.geist-mono
@@ -209,6 +210,21 @@
     sbctl
     wl-clipboard
   ];
+
+  programs._1password.enable = true;
+  programs._1password-gui = {
+    enable = true;
+    polkitPolicyOwners = [ "silash" ];
+  };
+
+  environment.etc = {
+    "1password/custom_allowed_browsers" = {
+      text = ''
+        zen-beta-wrapped
+      '';
+      mode = "0755";
+    };
+  };
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
