@@ -28,7 +28,6 @@
     ./programs/atuin.nix
     ./programs/bash.nix
     ./programs/bat.nix
-    ./programs/bitwarden.nix
     ./programs/bottom.nix
     ./programs/bun.nix
     ./programs/brave.nix
