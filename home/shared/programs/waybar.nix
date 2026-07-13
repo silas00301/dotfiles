@@ -121,7 +121,7 @@
         modules-left = [ "hyprland/workspaces" ];
         modules-center = [ "hyprland/window" ];
         modules-right = [
-          "custom/spotify-status"
+          # "custom/spotify-status"
           "tray"
           "pulseaudio"
           "clock"
@@ -133,14 +133,14 @@
         clock = {
           format = "{0:%H:%M} {0:%Y-%m-%d}";
         };
-        "custom/spotify-status" = {
-          format = "{text}";
-          return-type = "text";
-          max-length = 40;
-          interval = 15;
-          escape = true;
-          exec = "cat /tmp/bar/spt-status";
-        };
+        # "custom/spotify-status" = {
+        #   format = "{text}";
+        #   return-type = "text";
+        #   max-length = 40;
+        #   interval = 15;
+        #   escape = true;
+        #   exec = "cat /tmp/bar/spt-status";
+        # };
         pulseaudio = {
           scroll-step = 1;
           format = "{icon} {volume}%";

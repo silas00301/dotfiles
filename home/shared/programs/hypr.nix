@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, noctalia, ... }:
 let
   wallpaper = "/etc/wallpaper/wallpaper.jpg";
 in
@@ -147,11 +147,11 @@ in
       hl.bind(mod .. " + ALT + mouse:272", hl.dsp.window.resize(), { mouse = true })
 
       hl.bind(mod .. " + Q", hl.dsp.window.close())
-      hl.bind(mod .. " + W", hl.dsp.exec_cmd("ghostty"))
-      hl.bind(mod .. " + RETURN", hl.dsp.exec_cmd("ghostty"))
+      hl.bind(mod .. " + W", hl.dsp.exec_cmd("${pkgs.ghostty}/bin/ghostty"))
+      hl.bind(mod .. " + RETURN", hl.dsp.exec_cmd("${pkgs.ghostty}/bin/ghostty"))
       hl.bind(mod .. " + B", hl.dsp.exec_cmd("zen"))
-      hl.bind(mod .. " + L", hl.dsp.exec_cmd("hyprlock"))
-      hl.bind("ALT + SPACE", hl.dsp.exec_cmd("killall rofi || rofi -show drun"))
+      hl.bind(mod .. " + L", hl.dsp.exec_cmd("${pkgs.noctalia}/bin/noctalia msg session lock"))
+      hl.bind("ALT + SPACE", hl.dsp.exec_cmd("${pkgs.vicinae}/bin/vicinae open"))
       hl.bind(mod .. " + SPACE", hl.dsp.window.float({ action = "toggle" }))
 
       hl.bind(mod .. " + F", hl.dsp.window.fullscreen({
@@ -168,6 +168,8 @@ in
         "SUPER + ALT + CTRL + SHIFT + Q",
         hl.dsp.exec_cmd("${pkgs.hyprshutdown}/bin/hyprshutdown")
       )
+
+      hl.bind("SUPER + CTRL + F12", hl.dsp.exec_cmd("${noctalia}/bin/noctalia msg session lock"))
 
       local workspace_keys = {
         { keys = "1", workspace = 1 },
@@ -391,7 +393,7 @@ in
   };
 
   programs.hyprlock = {
-    enable = true;
+    enable = false;
 
     settings = {
       background = [
@@ -405,7 +407,7 @@ in
   };
 
   services.hyprpaper = {
-    enable = true;
+    enable = false;
 
     settings = {
       splash = false;
@@ -421,14 +423,13 @@ in
   };
 
   services.hypridle = {
-    enable = true;
+    enable = false;
 
     settings = {
       general = {
         lock_cmd = "pidof hyprlock || hyprlock";
         before_sleep_cmd = "loginctl lock-session";
-        after_sleep_cmd =
-          "hyprctl dispatch 'hl.dsp.dpms({ action = \"enable\" })'";
+        after_sleep_cmd = "hyprctl dispatch 'hl.dsp.dpms({ action = \"enable\" })'";
       };
 
       listener = [
@@ -438,10 +439,8 @@ in
         }
         {
           timeout = 360;
-          on-timeout =
-            "hyprctl dispatch 'hl.dsp.dpms({ action = \"disable\" })'";
-          on-resume =
-            "hyprctl dispatch 'hl.dsp.dpms({ action = \"enable\" })'";
+          on-timeout = "hyprctl dispatch 'hl.dsp.dpms({ action = \"disable\" })'";
+          on-resume = "hyprctl dispatch 'hl.dsp.dpms({ action = \"enable\" })'";
         }
       ];
     };

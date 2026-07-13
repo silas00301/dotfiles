@@ -19,7 +19,11 @@
     ];
 
     # Necessary for using flakes on this system.
-    nix.settings.experimental-features = "nix-command flakes";
+    nix.settings = {
+      experimental-features = "nix-command flakes";
+      extra-substituters = [ "https://vicinae.cachix.org" ];
+      extra-trusted-public-keys = [ "vicinae.cachix.org-1:1kDrfienkGHPYbkpNj1mWTr7Fm1+zcenzgTizIcI3oc=" ];
+    };
 
     programs.fish = {
       enable = true;

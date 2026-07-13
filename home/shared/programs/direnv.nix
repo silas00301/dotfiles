@@ -1,4 +1,4 @@
-{pkgs-stable, ...}: {
+{ pkgs-stable, ... }: {
   programs.direnv = {
     enable = true;
     package = pkgs-stable.direnv;

@@ -3,6 +3,7 @@
   nix-darwin,
   home-manager,
   catppuccin,
+  noctalia,
   nixpkgs-stable-darwin,
   nixpkgs-stable-nixos,
   nixpkgs,
@@ -10,6 +11,7 @@
   spicetify-nix,
   username,
   catppuccinConfig,
+  vicinae,
   zen-browser,
   ...
 }@inputs:
@@ -46,7 +48,7 @@ let
         inherit catppuccin;
         overlays = overlays;
         config.allowUnfree = true;
-        config.permittedInsecurePackages = ["electron-39.8.10"];
+        config.permittedInsecurePackages = [ "electron-39.8.10" ];
       };
       pkgs-stable =
         if systemFolder == systemFolders.linux then
@@ -127,7 +129,9 @@ let
               ../home/systems/${systemFolder}/shared
               ../home/systems/${systemFolder}/hosts/${host}
               catppuccin.homeModules.catppuccin
+              noctalia.homeModules.default
               spicetify-nix.homeManagerModules.default
+              vicinae.homeManagerModules.default
               zen-browser.homeModules.beta
             ];
           };
@@ -157,6 +161,7 @@ in
             _module.args = getBaseInputs system;
           }
           lanzaboote.nixosModules.lanzaboote
+          noctalia.nixosModules.default
           catppuccin.nixosModules.catppuccin
         ]
         ++ (getHomeForHost "nixosModules" system folderName systemInputs.pkgs systemInputs.pkgs-stable);

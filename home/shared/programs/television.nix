@@ -1,4 +1,4 @@
-{selfPackages, ...}: {
+{ selfPackages, ... }: {
   programs.television = {
     enable = true;
     settings = {
@@ -12,10 +12,16 @@
         metadata = {
           name = "files";
           description = "A channel to select files and directories";
-          requirements = ["fd" "bat"];
+          requirements = [
+            "fd"
+            "bat"
+          ];
         };
         source = {
-          command = ["fd -t f" "fd -t f -H"];
+          command = [
+            "fd -t f"
+            "fd -t f -H"
+          ];
         };
         preview = {
           command = "bat -n --color=always '{}'";

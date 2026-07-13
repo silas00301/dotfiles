@@ -5,7 +5,6 @@
 {
   config,
   pkgs,
-  selfPackages,
   ...
 }:
 {
@@ -32,6 +31,7 @@
 
   hardware = {
     graphics.enable = true;
+    bluetooth.enable = true;
     nvidia = {
       modesetting.enable = true;
       open = true;
@@ -40,32 +40,36 @@
     };
   };
 
-  systemd.user.services."spt-st" = {
-    name = "spt-st";
-    description = "spt-st auto fetch";
-    startAt = "*-*-* *:*:0/30";
+  # systemd.user.services."spt-st" = {
+  #   name = "spt-st";
+  #   description = "spt-st auto fetch";
+  #   startAt = "*-*-* *:*:0/30";
 
-    serviceConfig = {
-      Type = "oneshot";
-    };
+  #   serviceConfig = {
+  #     Type = "oneshot";
+  #   };
 
-    path = with pkgs; [
-      spotify-player
-      jq
-    ];
+  #   path = with pkgs; [
+  #     spotify-player
+  #     jq
+  #   ];
 
-    script = ''
-      mkdir -p /tmp/bar || true
-      playing="$(${selfPackages.spt-st}/bin/spt-st)"
-      if [[ "$playing" != "" ]]; then
-        echo "$playing" > /tmp/bar/spt-status
-      else
-        rm /tmp/bar/spt-status || true
-      fi
-    '';
-  };
+  #   script = ''
+  #     mkdir -p /tmp/bar || true
+  #     playing="$(${selfPackages.spt-st}/bin/spt-st)"
+  #     if [[ "$playing" != "" ]]; then
+  #       echo "$playing" > /tmp/bar/spt-status
+  #     else
+  #       rm /tmp/bar/spt-status || true
+  #     fi
+  #   '';
+  # };
 
   services.xserver.videoDrivers = [ "nvidia" ];
+
+  services.power-profiles-daemon.enable = true;
+
+  services.upower.enable = true;
 
   networking.hostName = "pm"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
@@ -77,7 +81,13 @@
   # Enable networking
   networking.networkmanager.enable = true;
 
-  security.pam.services.hyprlock = { };
+  # security.pam.services.hyprlock = { };
+
+  programs.noctalia = {
+    enable = true;
+    recommendedServices.enable = true;
+    systemd.enable = true;
+  };
 
   # Set your time zone.
   time.timeZone = "Europe/Berlin";
