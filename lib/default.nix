@@ -3,6 +3,7 @@
   nix-darwin,
   home-manager,
   catppuccin,
+  _1password-shell-plugins,
   noctalia,
   nixpkgs-stable-darwin,
   nixpkgs-stable-nixos,
@@ -135,6 +136,7 @@ let
               vicinae.homeManagerModules.default
               zen-browser.homeModules.beta
               nix-index-database.homeModules.default
+              _1password-shell-plugins.hmModules.default
             ];
           };
           extraSpecialArgs = getInputsForSystem system // {

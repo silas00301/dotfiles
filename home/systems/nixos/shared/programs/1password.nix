@@ -1,5 +1,9 @@
 { username, ... }:
 {
+  imports = [
+    ../../../../shared/programs/1password.nix
+  ];
+
   home.sessionVariables = {
     SSH_AUTH_SOCK = "/home/${username}/.1password/agent.sock";
   };

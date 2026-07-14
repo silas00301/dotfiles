@@ -18,6 +18,9 @@
     nix-index-database.url = "github:nix-community/nix-index-database";
     nix-index-database.inputs.nixpkgs.follows = "nixpkgs";
 
+    _1password-shell-plugins.url = "github:1Password/shell-plugins";
+    _1password-shell-plugins.inputs.nixpkgs.follows = "nixpkgs";
+
     noctalia.url = "github:noctalia-dev/noctalia";
     noctalia.inputs.nixpkgs.follows = "nixpkgs";
 
