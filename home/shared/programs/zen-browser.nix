@@ -1,7 +1,5 @@
 {
   config,
-  inputs,
-  system,
   ...
 }:
 {
@@ -162,15 +160,13 @@
     };
   xdg.mimeApps =
     let
+      browser = "zen-beta.desktop";
+
       associations = builtins.listToAttrs (
         map
           (name: {
             inherit name;
-            value =
-              let
-                zen-browser = inputs.zen-browser.packages.${system}.beta;
-              in
-              zen-browser.meta.desktopFile;
+            value = browser;
           })
           [
             "application/x-extension-shtml"

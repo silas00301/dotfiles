@@ -83,6 +83,11 @@
 
   # security.pam.services.hyprlock = { };
 
+  security.pam.services = {
+    login.u2fAuth = true;
+    sudo.u2fAuth = true;
+  };
+
   programs.noctalia = {
     enable = true;
     recommendedServices.enable = true;
@@ -120,6 +125,8 @@
   programs.hyprland.enable = true;
   # Hint electron to use wayland
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
+
+  programs.yubikey-touch-detector.enable = true;
 
   programs.zsh.enable = true;
 
@@ -220,10 +227,18 @@
   environment.etc = {
     "1password/custom_allowed_browsers" = {
       text = ''
-        zen-beta-wrapped
+        .zen-beta-wrapped
+        zen-bin
+        zen
+        zen-beta
       '';
       mode = "0755";
     };
+  };
+
+  programs.gnupg.agent = {
+    enable = true;
+    enableSSHSupport = true;
   };
 
   # Some programs need SUID wrappers, can be configured further or are
