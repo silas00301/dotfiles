@@ -7,6 +7,7 @@
   nixpkgs-stable-darwin,
   nixpkgs-stable-nixos,
   nixpkgs,
+  nix-index-database,
   lanzaboote,
   spicetify-nix,
   username,
@@ -133,6 +134,7 @@ let
               spicetify-nix.homeManagerModules.default
               vicinae.homeManagerModules.default
               zen-browser.homeModules.beta
+              nix-index-database.homeModules.default
             ];
           };
           extraSpecialArgs = getInputsForSystem system // {
