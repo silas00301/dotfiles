@@ -7,6 +7,7 @@
     ../shared/programs/1password.nix
 
     ../../../shared/programs/comma.nix
+    ../../../shared/programs/fastfetch.nix
     ../../../shared/programs/ghostty.nix
     ../../../shared/programs/hypr.nix
     ../../../shared/programs/spicetify

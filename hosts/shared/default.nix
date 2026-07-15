@@ -15,7 +15,6 @@
       vim
       fish
       coreutils
-      httpie
     ];
 
     # Necessary for using flakes on this system.
