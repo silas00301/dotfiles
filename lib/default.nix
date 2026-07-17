@@ -96,9 +96,9 @@ let
     in
     {
       imports = [
-        ../hosts/${systemFolder}/shared
+        ../hosts/systems/${systemFolder}/shared
         ../hosts/shared
-        ../hosts/${systemFolder}/hosts/${host}
+        ../hosts/systems/${systemFolder}/hosts/${host}
       ];
     }
   );
@@ -170,7 +170,7 @@ in
         ]
         ++ (getHomeForHost "nixosModules" system folderName systemInputs.pkgs systemInputs.pkgs-stable);
       }
-    ) (builtins.readDir ../hosts/nixos/hosts)
+    ) (builtins.readDir ../hosts/systems/nixos/hosts)
   );
 
   darwinConfigurations = (
@@ -194,7 +194,7 @@ in
         ]
         ++ (getHomeForHost "darwinModules" system folderName systemInputs.pkgs systemInputs.pkgs-stable);
       }
-    ) (builtins.readDir ../hosts/darwin/hosts)
+    ) (builtins.readDir ../hosts/systems/darwin/hosts)
   );
 
   packages = builtins.mapAttrs (system: _: getPackagesForSystem system) systems;
